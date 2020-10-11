@@ -1,0 +1,25 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Install Godot
+        run: |
+          brew cask install godot
+          ln -s /Applications/Godot.app/Contents/MacOS/Godot /usr/local/bin/godot
+          
+      - name: Build
+        run: |
+          cd $GITHUB_WORKSPACE
+          godot --check-only
