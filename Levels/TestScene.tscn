@@ -13,6 +13,7 @@ Next_Scene = "res://MainMenu/MainMenu.tscn"
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -320.0
 color = Color( 0.231373, 0.247059, 0.345098, 1 )
 __meta__ = {
 "_edit_use_anchors_": false

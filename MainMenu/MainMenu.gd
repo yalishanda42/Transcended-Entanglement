@@ -7,7 +7,7 @@ func _ready()->void:
 	MenuEvent.connect("Options", self, "on_options")
 	
 	if OS.get_name() == "HTML5":
-		$"BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer/Exit".visible = false
+		$"BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer/Exit".visible = false
 	#Localization
 	SettingsLanguage.connect("ReTranslate", self, "retranslate")
 	retranslate()
