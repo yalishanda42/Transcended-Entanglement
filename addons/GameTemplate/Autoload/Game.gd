@@ -37,6 +37,8 @@ func switch_scene()->void: 														#handles actual scene change
 	CurrentScene = NextScene
 	NextScene = null
 	#get_tree().change_scene_to(CurrentScene)
+	if typeof(CurrentScene) == TYPE_ARRAY:
+		CurrentScene = CurrentScene[0]
 	get_node("/root/MainMenu/BG/GameContainer").get_children()[0].replace_by(CurrentScene.instance())
 
 func restart_scene()->void:

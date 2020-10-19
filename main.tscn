@@ -1,0 +1,174 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Images/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Images/reajsmol.jpg" type="Texture" id=3]
+[ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 38 )
+
+[node name="MainMenu" type="CanvasLayer"]
+layer = 0
+script = ExtResource( 1 )
+First_Level = "res://Levels/level.tscn"
+
+[node name="BG" type="Panel" parent="."]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="BG"]
+margin_right = 288.0
+margin_bottom = 288.0
+color = Color( 0.227451, 0.247059, 0.32549, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GameContainer" type="MarginContainer" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -320.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxMain" type="VBoxContainer" parent="BG/GameContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 272.0
+margin_bottom = 272.0
+size_flags_vertical = 3
+
+[node name="CenterLogo" type="CenterContainer" parent="BG/GameContainer/VBoxMain"]
+margin_right = 256.0
+margin_bottom = 64.0
+
+[node name="Logo" type="TextureRect" parent="BG/GameContainer/VBoxMain/CenterLogo"]
+margin_left = 96.0
+margin_right = 160.0
+margin_bottom = 64.0
+texture = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/GameContainer/VBoxMain"]
+margin_top = 68.0
+margin_right = 256.0
+margin_bottom = 256.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="BG/GameContainer/VBoxMain/HBoxContainer"]
+margin_left = 61.0
+margin_right = 195.0
+margin_bottom = 188.0
+size_flags_vertical = 3
+custom_constants/separation = 16
+
+[node name="NewGame" parent="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer" groups=[
+"MainMenu",
+] instance=ExtResource( 4 )]
+margin_right = 134.0
+margin_bottom = 35.0
+text = "New Game"
+
+[node name="Options" parent="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 4 )]
+visible = false
+margin_top = 51.0
+margin_right = 134.0
+margin_bottom = 86.0
+text = "Options"
+
+[node name="Exit" parent="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 4 )]
+margin_top = 51.0
+margin_right = 134.0
+margin_bottom = 86.0
+text = "Exit"
+
+[node name="MarginContainer2" type="MarginContainer" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 252.0
+margin_right = -2.0
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxMain" type="VBoxContainer" parent="BG/MarginContainer2"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 270.0
+margin_bottom = 340.0
+size_flags_vertical = 3
+
+[node name="IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn" type="Sprite" parent="BG/MarginContainer2/VBoxMain"]
+position = Vector2( 127.797, 198.612 )
+scale = Vector2( 0.369489, 0.389741 )
+texture = ExtResource( 2 )
+
+[node name="ButtonB" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
+position = Vector2( 101.643, 95.1661 )
+shape = SubResource( 2 )
+passby_press = true
+
+[node name="ButtonA" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
+position = Vector2( 201.633, 95.3958 )
+shape = SubResource( 2 )
+passby_press = true
+
+[node name="ButtonDown" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
+position = Vector2( -272.791, 108.025 )
+shape = SubResource( 2 )
+passby_press = true
+
+[node name="ButtonUp" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
+position = Vector2( -273.518, -0.810791 )
+shape = SubResource( 2 )
+passby_press = true
+
+[node name="ButtonLeft" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
+position = Vector2( -329.707, 50.3925 )
+shape = SubResource( 2 )
+passby_press = true
+
+[node name="ButtonRight" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
+position = Vector2( -217.329, 54.0662 )
+shape = SubResource( 2 )
+passby_press = true
+
+[node name="ButtonStart" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
+position = Vector2( -23.0877, 86.2117 )
+shape = SubResource( 2 )
+[connection signal="pressed" from="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonB" to="." method="_on_ButtonB_pressed"]
+[connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonB" to="." method="_on_ButtonB_released"]
+[connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonA" to="." method="_on_ButtonA_pressed"]
+[connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonA" to="." method="_on_ButtonA_released"]
+[connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonDown" to="." method="_on_ButtonDown_pressed"]
+[connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonDown" to="." method="_on_ButtonDown_released"]
+[connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonUp" to="." method="_on_ButtonUp_pressed"]
+[connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonUp" to="." method="_on_ButtonUp_released"]
+[connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonLeft" to="." method="_on_ButtonLeft_pressed"]
+[connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonLeft" to="." method="_on_ButtonLeft_released"]
+[connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonRight" to="." method="_on_ButtonRight_pressed"]
+[connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonRight" to="." method="_on_ButtonRight_released"]
+[connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonStart" to="." method="_on_ButtonStart_pressed"]
+[connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonStart" to="." method="_on_ButtonStart_released"]
