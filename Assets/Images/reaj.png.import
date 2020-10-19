@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/reaj.jpg-4ab848d5f257eb10b5ccce4e1fbda10d.stex"
+path="res://.import/reaj.png-9c0fa53c9b8382fa69c7cd59e43095ec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/reaj.jpg"
-dest_files=[ "res://.import/reaj.jpg-4ab848d5f257eb10b5ccce4e1fbda10d.stex" ]
+source_file="res://Assets/Images/reaj.png"
+dest_files=[ "res://.import/reaj.png-9c0fa53c9b8382fa69c7cd59e43095ec.stex" ]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Images/reajsmol.jpg" type="Texture" id=3]
+[ext_resource path="res://Assets/Images/reaj.png" type="Texture" id=3]
 [ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
@@ -28,7 +28,7 @@ __meta__ = {
 [node name="ColorRect" type="ColorRect" parent="BG"]
 margin_right = 288.0
 margin_bottom = 288.0
-color = Color( 0.227451, 0.247059, 0.32549, 1 )
+color = Color( 0.215686, 0.239216, 0.376471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,16 +54,16 @@ size_flags_vertical = 3
 
 [node name="CenterLogo" type="CenterContainer" parent="BG/GameContainer/VBoxMain"]
 margin_right = 256.0
-margin_bottom = 64.0
+margin_bottom = 160.0
 
 [node name="Logo" type="TextureRect" parent="BG/GameContainer/VBoxMain/CenterLogo"]
-margin_left = 96.0
-margin_right = 160.0
-margin_bottom = 64.0
+margin_left = 48.0
+margin_right = 208.0
+margin_bottom = 160.0
 texture = ExtResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BG/GameContainer/VBoxMain"]
-margin_top = 68.0
+margin_top = 164.0
 margin_right = 256.0
 margin_bottom = 256.0
 size_flags_horizontal = 3
@@ -73,7 +73,7 @@ alignment = 1
 [node name="ButtonContainer" type="VBoxContainer" parent="BG/GameContainer/VBoxMain/HBoxContainer"]
 margin_left = 61.0
 margin_right = 195.0
-margin_bottom = 188.0
+margin_bottom = 92.0
 size_flags_vertical = 3
 custom_constants/separation = 16
 
