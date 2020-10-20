@@ -1,9 +1,16 @@
-extends Sprite
+extends KinematicBody2D
 
-var speed = 2 * 60
+export(bool) var isInverted = false
+
+var speed = 60
 
 func _process(delta):
 	var dir = Vector2.ZERO
 	dir.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	dir.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
-	translate(dir * speed * delta)
+	
+	if isInverted:
+		dir.x = -dir.x
+	
+	move_and_collide(dir * speed * delta)
+

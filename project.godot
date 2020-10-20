@@ -58,8 +58,8 @@ gdscript/warnings/return_value_discarded=false
 
 [display]
 
-window/size/width=288
-window/size/height=608
+window/size/width=272
+window/size/height=574
 window/size/test_width=1080
 window/size/test_height=2280
 window/handheld/orientation="portrait"
