@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://MainMenu/MainMenu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Images/reaj.png" type="Texture" id=3]
-[ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MainMenu/TitleScreenContainer.tscn" type="PackedScene" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
@@ -14,7 +13,6 @@ extents = Vector2( 40, 38 )
 [node name="MainMenu" type="CanvasLayer"]
 layer = 0
 script = ExtResource( 1 )
-First_Level = "res://Levels/level.tscn"
 
 [node name="BG" type="Panel" parent="."]
 pause_mode = 2
@@ -26,8 +24,8 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="BG"]
-margin_right = 288.0
-margin_bottom = 288.0
+margin_right = 272.0
+margin_bottom = 272.0
 color = Color( 0.215686, 0.239216, 0.376471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -45,57 +43,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VBoxMain" type="VBoxContainer" parent="BG/GameContainer"]
-margin_left = 16.0
-margin_top = 16.0
-margin_right = 272.0
-margin_bottom = 272.0
-size_flags_vertical = 3
-
-[node name="CenterLogo" type="CenterContainer" parent="BG/GameContainer/VBoxMain"]
-margin_right = 256.0
-margin_bottom = 160.0
-
-[node name="Logo" type="TextureRect" parent="BG/GameContainer/VBoxMain/CenterLogo"]
-margin_left = 48.0
-margin_right = 208.0
-margin_bottom = 160.0
-texture = ExtResource( 3 )
-
-[node name="HBoxContainer" type="HBoxContainer" parent="BG/GameContainer/VBoxMain"]
-margin_top = 164.0
-margin_right = 256.0
-margin_bottom = 256.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="ButtonContainer" type="VBoxContainer" parent="BG/GameContainer/VBoxMain/HBoxContainer"]
-margin_left = 61.0
-margin_right = 195.0
-margin_bottom = 92.0
-size_flags_vertical = 3
-custom_constants/separation = 16
-
-[node name="NewGame" parent="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer" groups=[
-"MainMenu",
-] instance=ExtResource( 4 )]
-margin_right = 134.0
-margin_bottom = 35.0
-text = "New Game"
-
-[node name="Options" parent="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 4 )]
-visible = false
-margin_top = 51.0
-margin_right = 134.0
-margin_bottom = 86.0
-text = "Options"
-
-[node name="Exit" parent="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer" instance=ExtResource( 4 )]
-margin_top = 51.0
-margin_right = 134.0
-margin_bottom = 86.0
-text = "Exit"
+[node name="TitleScreenContainer" parent="BG/GameContainer" instance=ExtResource( 3 )]
+First_Level = "res://Levels/level.tscn"
 
 [node name="MarginContainer2" type="MarginContainer" parent="BG"]
 anchor_right = 1.0
@@ -113,13 +62,13 @@ __meta__ = {
 [node name="VBoxMain" type="VBoxContainer" parent="BG/MarginContainer2"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 270.0
-margin_bottom = 340.0
+margin_right = 254.0
+margin_bottom = 306.0
 size_flags_vertical = 3
 
 [node name="IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn" type="Sprite" parent="BG/MarginContainer2/VBoxMain"]
-position = Vector2( 127.797, 198.612 )
-scale = Vector2( 0.369489, 0.389741 )
+position = Vector2( 119.822, 162.527 )
+scale = Vector2( 0.359711, 0.364096 )
 texture = ExtResource( 2 )
 
 [node name="ButtonB" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
@@ -155,9 +104,6 @@ passby_press = true
 [node name="ButtonStart" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
 position = Vector2( -23.0877, 86.2117 )
 shape = SubResource( 2 )
-[connection signal="pressed" from="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer/NewGame" to="." method="_on_NewGame_pressed"]
-[connection signal="pressed" from="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer/Options" to="." method="_on_Options_pressed"]
-[connection signal="pressed" from="BG/GameContainer/VBoxMain/HBoxContainer/ButtonContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonB" to="." method="_on_ButtonB_pressed"]
 [connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonB" to="." method="_on_ButtonB_released"]
 [connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonA" to="." method="_on_ButtonA_pressed"]

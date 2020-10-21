@@ -39,10 +39,9 @@ func switch_scene()->void: 														#handles actual scene change
 	#get_tree().change_scene_to(CurrentScene)
 	if typeof(CurrentScene) == TYPE_ARRAY:
 		CurrentScene = CurrentScene[0]
-	var toReplace = get_node("/root/MainMenu/BG/GameContainer").get_children()[0]
-	for subnode in toReplace.get_children():
-		subnode.visible = false
-	toReplace.replace_by(CurrentScene.instance())
+	var gameContainer = get_node("/root/MainMenu/BG/GameContainer")
+	get_node("/root/MainMenu/BG/GameContainer/TitleScreenContainer").visible = false
+	gameContainer.add_child(CurrentScene.instance(), true)
 
 func restart_scene()->void:
 	if ScreenFade.state != ScreenFade.IDLE:
