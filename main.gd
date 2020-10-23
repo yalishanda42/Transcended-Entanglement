@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+export(int) var joystickVibrationDuration = 25
+
 func _ready()->void:
 	get_tree().get_nodes_in_group("MainMenu")[0].grab_focus()					
 	#Godot doesn't have buttons auto grab_focus when noone has focus
@@ -19,6 +21,7 @@ func _on_ButtonB_pressed():
 	a2.action = "Primary"
 	a2.pressed = true
 	Input.parse_input_event(a2)
+	Input.vibrate_handheld(joystickVibrationDuration)
 
 func _on_ButtonB_released():
 	var a1 = InputEventAction.new()
@@ -35,6 +38,7 @@ func _on_ButtonA_pressed():
 	a1.action = "Secondary"
 	a1.pressed = true
 	Input.parse_input_event(a1)
+	Input.vibrate_handheld(joystickVibrationDuration)
 
 func _on_ButtonA_released():
 	var a1 = InputEventAction.new()
@@ -51,6 +55,7 @@ func _on_ButtonDown_pressed():
 	a2.action = "ui_down"
 	a2.pressed = true
 	Input.parse_input_event(a2)
+	Input.vibrate_handheld(joystickVibrationDuration)
 
 func _on_ButtonDown_released():
 	var a1 = InputEventAction.new()
@@ -61,9 +66,6 @@ func _on_ButtonDown_released():
 	a2.action = "ui_down"
 	a2.pressed = false
 	Input.parse_input_event(a2)
-	Input.action_release("Down")
-	Input.action_release("ui_down")
-
 
 func _on_ButtonUp_pressed():
 	var a1 = InputEventAction.new()
@@ -74,6 +76,7 @@ func _on_ButtonUp_pressed():
 	a2.action = "ui_up"
 	a2.pressed = true
 	Input.parse_input_event(a2)
+	Input.vibrate_handheld(joystickVibrationDuration)
 
 func _on_ButtonUp_released():
 	var a1 = InputEventAction.new()
@@ -94,6 +97,7 @@ func _on_ButtonLeft_pressed():
 	a2.action = "ui_left"
 	a2.pressed = true
 	Input.parse_input_event(a2)
+	Input.vibrate_handheld(joystickVibrationDuration)
 
 func _on_ButtonLeft_released():
 	var a1 = InputEventAction.new()
@@ -114,6 +118,7 @@ func _on_ButtonRight_pressed():
 	a2.action = "ui_right"
 	a2.pressed = true
 	Input.parse_input_event(a2)
+	Input.vibrate_handheld(joystickVibrationDuration)
 
 func _on_ButtonRight_released():
 	var a1 = InputEventAction.new()
@@ -134,9 +139,7 @@ func _on_ButtonStart_pressed():
 	a2.action = "ui_cancel"
 	a2.pressed = true
 	Input.parse_input_event(a2)
-	Input.action_press("Pause")
-	Input.action_press("ui_cancel")
-
+	Input.vibrate_handheld(joystickVibrationDuration)
 
 func _on_ButtonStart_released():
 	var a1 = InputEventAction.new()
@@ -147,5 +150,3 @@ func _on_ButtonStart_released():
 	a2.action = "ui_cancel"
 	a2.pressed = false
 	Input.parse_input_event(a2)
-	Input.action_release("Pause")
-	Input.action_release("ui_cancel")
