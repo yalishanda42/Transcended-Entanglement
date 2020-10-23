@@ -12,5 +12,5 @@ func _process(delta):
 	if isInverted:
 		dir.x = -dir.x
 	
-	move_and_collide(dir * speed * delta)
+	move_and_slide(dir * speed)
 
