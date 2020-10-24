@@ -2,11 +2,11 @@ extends KinematicBody2D
 
 
 export(int) var speed = 25
-var direction = Vector2(-1, 0)
+export(Vector2) var direction = Vector2(-1, 0)
 
 func _ready():
 	$AnimatedSprite.playing = true
-	direction = Vector2(-1, 0)
+	direction = direction.normalized()
 
 func _process(delta):
 	var velocity = move_and_slide(direction * speed)
@@ -22,4 +22,3 @@ func _process(delta):
 			direction.x = 0
 	
 	$AnimatedSprite.flip_h = direction.x > 0
-
