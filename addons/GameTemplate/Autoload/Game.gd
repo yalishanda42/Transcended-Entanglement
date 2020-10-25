@@ -3,7 +3,7 @@ extends Node2D
 signal NewGame		#You choose how to use it
 signal Continue		#You choose how to use it
 signal Resume		#You choose how to use it
-signal Restart		#Reloads current scene
+signal Restart		#Reloads current level
 signal ChangeScene	#Pass location of next scene file
 signal Exit			#Triggers closing the game
 
@@ -40,8 +40,14 @@ func switch_scene()->void: 														#handles actual scene change
 	if typeof(CurrentScene) == TYPE_ARRAY:
 		CurrentScene = CurrentScene[0]
 	var gameContainer = get_node("/root/MainMenu/BG/GameContainer")
-	get_node("/root/MainMenu/BG/GameContainer/TitleScreenContainer").visible = false
+	var toRemove = gameContainer.get_children()[0]
+	gameContainer.remove_child(toRemove)
+	toRemove.queue_free()
 	gameContainer.add_child(CurrentScene.instance(), true)
+
+func restart_level():
+	NextScene = CurrentScene
+	switch_scene()
 
 func restart_scene()->void:
 	if ScreenFade.state != ScreenFade.IDLE:
@@ -62,9 +68,13 @@ func take_life():
 	Hud.life = new
 	if new <= 0:
 		game_over()
+	else:
+		restart_level()
+		Hud.timeLeft = 120
+	
 
 func time_is_up():
-	game_over()
+	take_life()
 
 func game_over():
 	print("GAME OVER")
