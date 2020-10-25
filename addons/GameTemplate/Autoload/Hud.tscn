@@ -5,18 +5,40 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends Node
 
-onready var hp: = $CanvasLayer/GUI/MarginContainer/VBoxContainer/Top/HP
-onready var score: = $CanvasLayer/GUI/MarginContainer/VBoxContainer/Top/Score
+onready var hpNode: = $CanvasLayer/GUI/MarginContainer/VBoxContainer/Top/HP
+onready var timeNode: = $CanvasLayer/GUI/MarginContainer/VBoxContainer/Top/Score
 onready var gui: = $CanvasLayer/GUI
 
 var visible: = false setget set_visible
+var life: = 9 setget set_life
+var timeLeft: = 120 setget set_timeLeft
 
 func _ready()->void:
+	hpNode.text = \"Lives: \" + str(life)
+	timeNode.text = \"Time: \" + str(timeLeft)
 	gui.visible = visible
 
 func set_visible(value: bool)->void:
 	visible = value
 	gui.visible = value
+	if value:
+		$Timer.start()
+	else:
+		$Timer.stop()
+
+func set_life(value: int) -> void:
+	life = value
+	hpNode.text = \"Lives: \" + str(value)
+	
+func set_timeLeft(value: int) -> void:
+	timeLeft = value
+	timeNode.text = \"Time: \" + str(timeLeft)
+
+func _on_Timer_timeout():
+	set_timeLeft(timeLeft - 1)
+	if timeLeft == 0:
+		Game.time_is_up()
+		$Timer.stop()
 "
 
 [node name="Hud" type="Node"]
@@ -76,3 +98,6 @@ margin_bottom = 34.0
 custom_fonts/font = ExtResource( 1 )
 text = "Time: 999"
 align = 2
+
+[node name="Timer" type="Timer" parent="."]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

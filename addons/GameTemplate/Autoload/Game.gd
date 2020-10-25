@@ -53,4 +53,19 @@ func on_Exit()->void:
 	if ScreenFade.state != ScreenFade.IDLE:
 		return
 	get_tree().quit()
+	
+# Gameplay
 
+func take_life():
+	var curr = Hud.life
+	var new = curr - 1
+	Hud.life = new
+	if new <= 0:
+		game_over()
+
+func time_is_up():
+	game_over()
+
+func game_over():
+	print("GAME OVER")
+	#TODO
