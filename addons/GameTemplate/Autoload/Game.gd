@@ -3,7 +3,8 @@ extends Node2D
 signal NewGame		#You choose how to use it
 signal Continue		#You choose how to use it
 signal Resume		#You choose how to use it
-signal Restart		#Reloads current level
+signal MainMenu
+signal Restart		#Reloads game
 signal ChangeScene	#Pass location of next scene file
 signal Exit			#Triggers closing the game
 
@@ -15,7 +16,9 @@ var loader: = ResourceAsyncLoader.new()
 func _ready()->void:
 	connect("Exit",			self, "on_Exit")
 	connect("ChangeScene",	self, "on_ChangeScene")
-	connect("Restart", 		self, "restart_scene")
+	connect("Restart", 		self, "restart_level")
+	connect("NewGame",		self, "start_over")
+	connect("MainMenu",		self, "restart_scene")
 
 func on_ChangeScene(scene)->void:
 	if ScreenFade.state != ScreenFade.IDLE:
@@ -45,10 +48,6 @@ func switch_scene()->void: 														#handles actual scene change
 	toRemove.queue_free()
 	gameContainer.add_child(CurrentScene.instance(), true)
 
-func restart_level():
-	NextScene = CurrentScene
-	switch_scene()
-
 func restart_scene()->void:
 	if ScreenFade.state != ScreenFade.IDLE:
 		return
@@ -61,6 +60,15 @@ func on_Exit()->void:
 	get_tree().quit()
 	
 # Gameplay
+	
+func start_over():
+	Hud.timeLeft = 120
+	Hud.life = 9
+	on_ChangeScene("res://Levels/level.tscn")
+
+func restart_level():
+	Hud.timeLeft = 120
+	on_ChangeScene("res://Levels/level.tscn")
 
 func take_life():
 	var curr = Hud.life
@@ -74,8 +82,10 @@ func take_life():
 	
 
 func time_is_up():
-	take_life()
+	game_over()
 
 func game_over():
-	print("GAME OVER")
-	#TODO
+	on_ChangeScene("res://MainMenu/GameOverContainer.tscn")
+	
+func win_game():
+	pass # TODO

@@ -1,7 +1,5 @@
 extends VBoxContainer
 
-export (String, FILE, "*.tscn") var First_Level: String
-
 func _ready()->void:
 	MenuEvent.connect("Options", self, "on_options")
 	
@@ -13,7 +11,7 @@ func _ready()->void:
 
 func _on_NewGame_pressed()->void:
 	Game.emit_signal("NewGame")
-	Game.emit_signal("ChangeScene", First_Level)
+
 
 func _on_Options_pressed()->void:
 	MenuEvent.Options = true
