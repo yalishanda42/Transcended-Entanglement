@@ -73,6 +73,7 @@ func take_life():
 	var curr = Hud.life
 	var new = curr - 1
 	Hud.life = new
+	yield(get_tree().create_timer(2.0), "timeout")
 	if new <= 0:
 		game_over()
 	else:
@@ -86,6 +87,7 @@ func game_over():
 	
 func advance_level():
 	# TODO
+	yield(get_tree().create_timer(2.0), "timeout")
 	win_game()
 
 func win_game():

@@ -7,6 +7,7 @@ func _ready()->void:
 	Hud.timeLeft = 120
 	Hud.visible = true
 	PauseMenu.can_show = true
+	get_tree().paused = false
 
 func _exit_tree()->void:
 	Hud.visible = false
@@ -20,6 +21,7 @@ func _on_GoalArea_body_entered(body):
 		aiHasReachedGoal = true
 	
 	if reHasReachedGoal and aiHasReachedGoal:
+		get_tree().paused = true
 		Game.advance_level()
 
 
