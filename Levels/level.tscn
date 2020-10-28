@@ -20,8 +20,8 @@ tile_data = PoolIntArray( 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 
 position = Vector2( 153.125, 263.662 )
 isInverted = true
 
-[node name="pacman" parent="." instance=ExtResource( 3 )]
+[node name="npc" parent="." instance=ExtResource( 3 )]
 
-[node name="pacman2" parent="." instance=ExtResource( 3 )]
+[node name="npc2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 167.746, 119.744 )
 direction = Vector2( 0, 1 )

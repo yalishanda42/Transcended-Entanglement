@@ -15,7 +15,6 @@ func _process(delta):
 	move_and_slide(dir * speed)
 
 func _on_Area2D_body_entered(body):
-
-	if "pacman" in body.get_name():
+	if "npc" in body.get_name():
 		Game.take_life()
 		body.queue_free()

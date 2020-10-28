@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready()->void:
+	Hud.timeLeft = 120
 	Hud.visible = true
 	PauseMenu.can_show = true
 
