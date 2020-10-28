@@ -84,5 +84,9 @@ func time_is_up():
 func game_over():
 	on_ChangeScene("res://MainMenu/GameOverContainer.tscn")
 	
+func advance_level():
+	# TODO
+	win_game()
+
 func win_game():
-	pass # TODO
+	on_ChangeScene("res://MainMenu/WinGameContainer.tscn")
