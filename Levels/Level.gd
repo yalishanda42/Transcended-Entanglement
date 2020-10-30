@@ -33,8 +33,14 @@ const LEVEL_SETUP = {
 			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
-			[Vector2(7, 4), Vector2(-1, 0)],
-			[Vector2(10, 7), Vector2(0, 1)],
+			{
+				"position": [7, 4],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [10, 7],
+				"direction": [0, 1]
+			},
 		],
 		"time": 120
 	},
@@ -43,25 +49,39 @@ const LEVEL_SETUP = {
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
 			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
+			"xoxxoxxoxoxxxxxox",
+			"xoooooooxoxooooox",
+			"xoxoxoxoxoxxxoxox",
+			"xoxoxoxoxoooxoxox",
+			"xoxoxoxoxoxxxoxox",
+			"xoooxoxoxoxooooox",
+			"xoxoxoxoxoxoxxxxx",
+			"xoxoooooxoxooooox",
+			"xoxxxxoxxoxoxxxox",
+			"xooooxooxoxoooxox",
+			"xoxxoxxoxoxxxoxox",
+			"xoooooxoxoooxooox",
+			"xxxoxxxoxxxoxxxox",
 			"xoooooooxooooooox",
 			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
-			[Vector2(5, 5), Vector2(0, 1)],
-			[Vector2(2, 12), Vector2(1, 0)],
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			},
+			{
+				"position": [9, 7],
+				"direction": [0, 1]
+			},
+			{
+				"position": [13, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [2, 12],
+				"direction": [1, 0]
+			},
 		],
 		"time": 120
 	}
@@ -148,12 +168,14 @@ func load_level():
 	var npc_scene = load(NPC_RESOURCE)
 	var npc_data = level_data["npc"]
 	for i in range(len(npc_data)):
-		var npc_list = npc_data[i]
+		var npc_obj= npc_data[i]
 		var npc = npc_scene.instance()
 		add_child(npc, true)
+		var npc_pos = npc_obj["position"]
+		var npc_dir = npc_obj["direction"]
+		npc.position = __get_tile_center(Vector2(npc_pos[0], npc_pos[1]))
+		npc.direction = Vector2(npc_dir[0], npc_dir[1])
 		npc.name = "npc" + str(i)
-		npc.direction = npc_list[1]
-		npc.position = __get_tile_center(npc_list[0])
 
 	# Move re and ai to their start points
 	$rebody.position = __get_tile_center(RE_START)
