@@ -85,10 +85,9 @@ func time_is_up():
 func game_over():
 	on_ChangeScene("res://MainMenu/GameOverContainer.tscn")
 	
-func advance_level():
+#func advance_level(from_level):
 	# TODO
-	yield(get_tree().create_timer(2.0), "timeout")
-	win_game()
+#	yield(get_tree().create_timer(2.0), "timeout")
 
 func win_game():
 	on_ChangeScene("res://MainMenu/WinGameContainer.tscn")

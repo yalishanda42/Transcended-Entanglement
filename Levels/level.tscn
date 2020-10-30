@@ -36,5 +36,7 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoalArea"]
 shape = SubResource( 1 )
+[connection signal="die" from="rebody" to="." method="_on_character_die"]
+[connection signal="die" from="ajbody" to="." method="_on_character_die"]
 [connection signal="body_entered" from="GoalArea" to="." method="_on_GoalArea_body_entered"]
 [connection signal="body_exited" from="GoalArea" to="." method="_on_GoalArea_body_exited"]

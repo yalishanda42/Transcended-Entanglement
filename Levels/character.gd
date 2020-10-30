@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal die
+
 export(bool) var isInverted = false
 
 var speed = 60
@@ -16,7 +18,5 @@ func _process(delta):
 		move_and_slide(dir * speed)
 
 func _on_Area2D_body_entered(body):
-	if "npc" in body.get_name():
-		get_tree().paused = true
-		Game.take_life()
-
+	if "npc" in body.name:
+		emit_signal("die")
