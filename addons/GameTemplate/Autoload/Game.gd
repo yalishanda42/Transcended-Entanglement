@@ -58,9 +58,9 @@ func on_Exit()->void:
 	if ScreenFade.state != ScreenFade.IDLE:
 		return
 	get_tree().quit()
-	
+
 # Gameplay
-	
+
 func start_over():
 
 	Hud.life = 9
@@ -69,22 +69,13 @@ func start_over():
 func restart_level():
 	on_ChangeScene("res://Levels/level.tscn")
 
-func take_life():
-	var curr = Hud.life
-	var new = curr - 1
-	Hud.life = new
-	yield(get_tree().create_timer(2.0), "timeout")
-	if new <= 0:
-		game_over()
-	else:
-		restart_level()
 
 func time_is_up():
 	game_over()
 
 func game_over():
 	on_ChangeScene("res://MainMenu/GameOverContainer.tscn")
-	
+
 #func advance_level(from_level):
 	# TODO
 #	yield(get_tree().create_timer(2.0), "timeout")

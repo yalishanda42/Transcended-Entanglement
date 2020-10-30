@@ -3,14 +3,41 @@ extends Node2D
 var reHasReachedGoal = false
 var aiHasReachedGoal = false
 
-const re_start = Vector2(7, 16)
-const ai_start = Vector2(9, 16)
+const RE_START = Vector2(7, 16)
+const AI_START = Vector2(9, 16)
 
 const NPC_RESOURCE = "res://Levels/npc.tscn"
 
 var level = 1
 const MAX_LEVEL = 2
 const LEVEL_SETUP = {
+	1: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoxxxxxxxxxxoxxox",
+			"xoooooooxooooooox",
+			"xoxxxxxoxoxxxoxxx",
+			"xoooooooxooooooox",
+			"xoxxoxxoxxoxxxxox",
+			"xooxooooxooooxoox",
+			"xxoxxoxxxoxxoxxox",
+			"xoooooooxoooooxox",
+			"xxoxoxxoxoxxxoxox",
+			"xooxooooxoxooooox",
+			"xoxxoxxxxoxoxxxox",
+			"xoooooooxooooooox",
+			"xxxoxxxxxxxxxxxox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			[Vector2(7, 4), Vector2(-1, 0)],
+			[Vector2(10, 7), Vector2(0, 1)],
+		],
+		"time": 120
+	},
 	2: {
 		"tiles": [
 			"xxxxxxxxxxxxxxxxx",
@@ -36,6 +63,7 @@ const LEVEL_SETUP = {
 			[Vector2(5, 5), Vector2(0, 1)],
 			[Vector2(2, 12), Vector2(1, 0)],
 		],
+		"time": 120
 	}
 }
 
@@ -46,10 +74,9 @@ const __TILEMAP_INDEX = {
 }
 
 func _ready()->void:
-	Hud.timeLeft = 120
 	Hud.visible = true
 	PauseMenu.can_show = true
-	get_tree().paused = false
+	load_level()
 
 func _exit_tree()->void:
 	Hud.visible = false
@@ -78,9 +105,18 @@ func _on_GoalArea_body_exited(body):
 
 func _on_character_die():
 	get_tree().paused = true
-	# TODO: handle transition here
-	Game.take_life()
-
+	yield(get_tree().create_timer(2.0), "timeout")
+	ScreenFade.state = ScreenFade.OUT
+	if ScreenFade.state != ScreenFade.BLACK:
+		yield(ScreenFade, "fade_complete")
+	ScreenFade.state = ScreenFade.IN
+	var curr = Hud.life
+	var new = curr - 1
+	Hud.life = new
+	if new <= 0:
+		Game.game_over()
+		return
+	load_level()
 
 func level_up():
 	level += 1
@@ -88,6 +124,10 @@ func level_up():
 		Game.win_game()
 		return
 
+	load_level()
+
+
+func load_level():
 	var level_data = LEVEL_SETUP[level]
 
 	# Load tiles
@@ -105,16 +145,19 @@ func level_up():
 	# Create new npc's
 	var npc_scene = load(NPC_RESOURCE)
 	var npc_data = level_data["npc"]
-	for npc_list in npc_data:
+	for i in range(len(npc_data)):
+		var npc_list = npc_data[i]
 		var npc = npc_scene.instance()
 		add_child(npc, true)
+		npc.name = "npc" + str(i)
 		npc.direction = npc_list[1]
 		npc.position = __get_tile_center(npc_list[0])
 
 	# Move re and ai to their start points
-	$rebody.position = __get_tile_center(re_start)
-	$ajbody.position = __get_tile_center(ai_start)
+	$rebody.position = __get_tile_center(RE_START)
+	$ajbody.position = __get_tile_center(AI_START)
 
+	Hud.timeLeft = level_data["time"]
 	get_tree().paused = false
 	$TileMap.update_dirty_quadrants()
 
