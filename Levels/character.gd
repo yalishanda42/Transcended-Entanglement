@@ -2,9 +2,14 @@ extends KinematicBody2D
 
 signal die
 
+export(String, FILE) var spriteResource
 export(bool) var isInverted = false
 
 var speed = 60
+
+func _ready():
+	var texture = load(spriteResource)
+	$re.texture = texture
 
 func _process(delta):
 	if not get_tree().paused:
