@@ -1,7 +1,7 @@
 extends Node2D
 
-var reHasReachedGoal = false
-var aiHasReachedGoal = false
+var re_has_reached_goal = false
+var ai_has_reached_goal = false
 
 const RE_START = Vector2(7, 16)
 const AI_START = Vector2(9, 16)
@@ -84,12 +84,12 @@ func _exit_tree()->void:
 
 
 func _on_GoalArea_body_entered(body):
-	if body.get_name() == "rebody":
-		reHasReachedGoal = true
-	elif body.get_name() == "ajbody":
-		aiHasReachedGoal = true
+	if body.name == "rebody":
+		re_has_reached_goal = true
+	elif body.name == "ajbody":
+		ai_has_reached_goal = true
 
-	if reHasReachedGoal and aiHasReachedGoal:
+	if re_has_reached_goal and ai_has_reached_goal:
 		get_tree().paused = true
 		yield(get_tree().create_timer(2.0), "timeout")
 
@@ -98,10 +98,10 @@ func _on_GoalArea_body_entered(body):
 
 
 func _on_GoalArea_body_exited(body):
-	if body.get_name() == "rebody":
-		reHasReachedGoal = false
-	elif body.get_name() == "ajbody":
-		aiHasReachedGoal = false
+	if body.name == "rebody":
+		re_has_reached_goal = false
+	elif body.name == "ajbody":
+		ai_has_reached_goal = false
 
 func _on_character_die():
 	get_tree().paused = true
@@ -110,12 +110,14 @@ func _on_character_die():
 	if ScreenFade.state != ScreenFade.BLACK:
 		yield(ScreenFade, "fade_complete")
 	ScreenFade.state = ScreenFade.IN
+
 	var curr = Hud.life
 	var new = curr - 1
 	Hud.life = new
 	if new <= 0:
 		Game.game_over()
 		return
+
 	load_level()
 
 func level_up():
@@ -156,6 +158,8 @@ func load_level():
 	# Move re and ai to their start points
 	$rebody.position = __get_tile_center(RE_START)
 	$ajbody.position = __get_tile_center(AI_START)
+	re_has_reached_goal = false
+	ai_has_reached_goal = false
 
 	Hud.timeLeft = level_data["time"]
 	get_tree().paused = false
