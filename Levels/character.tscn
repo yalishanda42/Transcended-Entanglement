@@ -28,4 +28,9 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( -0.106552, 0.106537 )
 shape = SubResource( 1 )
+
+[node name="short-weapon-timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="short-weapon-timer" to="." method="_on_shortweapontimer_timeout"]

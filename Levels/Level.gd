@@ -115,6 +115,10 @@ func _on_GoalArea_body_entered(body):
 
 		# TODO: show intermediate screen when unlocking item
 		level_up()
+		ScreenFade.state = ScreenFade.OUT
+		if ScreenFade.state != ScreenFade.BLACK:
+			yield(ScreenFade, "fade_complete")
+		ScreenFade.state = ScreenFade.IN
 
 
 func _on_GoalArea_body_exited(body):
