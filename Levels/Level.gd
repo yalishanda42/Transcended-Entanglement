@@ -110,6 +110,8 @@ func _on_GoalArea_body_entered(body):
 		ai_has_reached_goal = true
 
 	if re_has_reached_goal and ai_has_reached_goal:
+		$rebody.reset_animation()
+		$ajbody.reset_animation()
 		get_tree().paused = true
 		yield(get_tree().create_timer(2.0), "timeout")
 
@@ -184,6 +186,10 @@ func load_level():
 	# Move re and ai to their start points
 	$rebody.position = __get_tile_center(RE_START)
 	$ajbody.position = __get_tile_center(AI_START)
+	$rebody.reset_animation()
+	$ajbody.reset_animation()
+	$rebody.lastDirection = Vector2(0, 1)
+	$ajbody.lastDirection = Vector2(0, 1)
 	re_has_reached_goal = false
 	ai_has_reached_goal = false
 

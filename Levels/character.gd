@@ -10,6 +10,10 @@ var loadedShortWeaponScene
 var lastDirection
 var shortWeaponInstance = null
 
+func reset_animation():
+	$AnimatedSprite.animation = "still"
+	$AnimatedSprite.playing = false
+
 func _ready():
 	lastDirection = Vector2(0, 1)
 	loadedShortWeaponScene = load(shortWeaponScene)
