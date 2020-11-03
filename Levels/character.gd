@@ -2,7 +2,6 @@ extends KinematicBody2D
 
 signal die
 
-export(String, FILE) var spriteResource
 export(bool) var isInverted = false
 export(String, FILE, "*.tscn") var shortWeaponScene = "res://Levels/weaponshort.tscn"
 
@@ -12,9 +11,7 @@ var lastDirection
 var shortWeaponInstance = null
 
 func _ready():
-	var texture = load(spriteResource)
-	$re.texture = texture
-	lastDirection = Vector2(1, 0) if isInverted else Vector2(-1, 0)
+	lastDirection = Vector2(0, 1)
 	loadedShortWeaponScene = load(shortWeaponScene)
 
 func _process(delta):
@@ -35,6 +32,26 @@ func _process(delta):
 			lastDirection = Vector2(0, dir.y) if dir.x == 0 else Vector2(dir.x, 0)
 		
 		move_and_slide(dir * speed)
+		
+		# Animation
+		
+		if lastDirection.x > 0:
+			$AnimatedSprite.animation = "sideways"
+			$AnimatedSprite.flip_h = false
+		elif lastDirection.x < 0:
+			$AnimatedSprite.animation = "sideways"
+			$AnimatedSprite.flip_h = true
+		elif lastDirection.y > 0:
+			$AnimatedSprite.animation = "down"
+			$AnimatedSprite.flip_h = false
+		elif lastDirection.y < 0:
+			$AnimatedSprite.animation = "up"
+			$AnimatedSprite.flip_h = false
+			
+		if dir.x == 0 and dir.y == 0:
+			$AnimatedSprite.frame = 0
+		
+		# Weapon
 		
 		if Input.get_action_strength("Primary"):
 			spawn_short_weapon()
