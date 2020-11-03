@@ -1,0 +1,96 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Assets/Images/ai-spritesheet.png" type="Texture" id=1]
+[ext_resource path="res://Levels/character.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 32, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 32, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 1 ) ],
+"loop": true,
+"name": "still",
+"speed": 1.0
+}, {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 2 ), SubResource( 4 ) ],
+"loop": true,
+"name": "up",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 5 ), SubResource( 7 ) ],
+"loop": true,
+"name": "down",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "sideways",
+"speed": 10.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=11]
+radius = 6.91428
+height = 0.46167
+
+[node name="ajbody" type="KinematicBody2D"]
+position = Vector2( 120, 264 )
+collision_layer = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_editor_description_": ""
+}
+isInverted = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 10 )
+animation = "still"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.106552, 0.106537 )
+shape = SubResource( 11 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.106552, 0.106537 )
+shape = SubResource( 11 )
+
+[node name="short-weapon-timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="short-weapon-timer" to="." method="_on_shortweapontimer_timeout"]

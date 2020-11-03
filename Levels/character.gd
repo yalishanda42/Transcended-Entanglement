@@ -28,7 +28,6 @@ func _process(delta):
 		dir = dir.normalized()
 			
 		if dir.x != 0 or dir.y != 0:
-			print(dir)
 			lastDirection = Vector2(0, dir.y) if dir.x == 0 else Vector2(dir.x, 0)
 		
 		move_and_slide(dir * speed)
@@ -50,6 +49,9 @@ func _process(delta):
 			
 		if dir.x == 0 and dir.y == 0:
 			$AnimatedSprite.frame = 0
+			$AnimatedSprite.playing = false
+		else:
+			$AnimatedSprite.playing = true
 		
 		# Weapon
 		

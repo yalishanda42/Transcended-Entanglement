@@ -197,3 +197,11 @@ func __get_tile_center(tile_location_vector):
 	result.x += 8
 	result.y += 8
 	return result
+
+
+func _on_rebody_die():
+	_on_character_die()
+
+
+func _on_ajbody_die():
+	_on_character_die()
