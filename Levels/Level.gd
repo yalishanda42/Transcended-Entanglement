@@ -16,7 +16,7 @@ const LEVEL_SETUP = {
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
 			"xooooooogooooooox",
-			"xoxxxxxxxxxxoxxox",
+			"xoxxxxxxxxxxxxxox",
 			"xoooooooxooooooox",
 			"xoxxxxxoxoxxxoxxx",
 			"xoooooooxooooooox",
@@ -81,6 +81,14 @@ const LEVEL_SETUP = {
 			{
 				"position": [2, 12],
 				"direction": [1, 0]
+			},
+			{
+				"position": [7, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [12, 6],
+				"direction": [-1, 0]
 			},
 		],
 		"time": 120
