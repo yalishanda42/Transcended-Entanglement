@@ -87,7 +87,7 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			},
 			{
-				"position": [12, 6],
+				"position": [11, 5],
 				"direction": [-1, 0]
 			},
 		],

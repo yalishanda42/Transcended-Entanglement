@@ -4,7 +4,12 @@ extends KinematicBody2D
 export(int) var speed = 25
 export(Vector2) var direction = Vector2(-1, 0)
 
+const COLORS = ["red", "orange", "pink", "blue"]
+var color = "red"
+
 func _ready():
+	color = COLORS[randi() % len(COLORS)]
+	$AnimatedSprite.animation = "down-" + color
 	$AnimatedSprite.playing = true
 	direction = direction.normalized()
 
@@ -22,4 +27,13 @@ func _process(delta):
 				direction.y = -1 if rand < 0.5 else 1
 				direction.x = 0
 		
-		$AnimatedSprite.flip_h = direction.x > 0
+		if direction.x > 0:
+			$AnimatedSprite.animation = "side-" + color
+			$AnimatedSprite.flip_h = false
+		elif direction.x < 0:
+			$AnimatedSprite.animation = "side-" + color
+			$AnimatedSprite.flip_h = true
+		elif direction.y > 0:
+			$AnimatedSprite.animation = "down-" + color
+		elif direction.y < 0:
+			$AnimatedSprite.animation = "up-" + color
