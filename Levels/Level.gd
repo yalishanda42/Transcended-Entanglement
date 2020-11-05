@@ -9,7 +9,7 @@ const AI_START = Vector2(9, 16)
 const NPC_RESOURCE = "res://Levels/npc.tscn"
 
 var level = 1
-const MAX_LEVEL = 2
+const MAX_LEVEL = 16
 const LEVEL_SETUP = {
 	1: {
 		"tiles": [
