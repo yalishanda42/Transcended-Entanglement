@@ -92,7 +92,489 @@ const LEVEL_SETUP = {
 			},
 		],
 		"time": 120
-	}
+	},
+	3: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xxxxoxxxxxxxoxxxx",
+			"xoooooooxooooooox",
+			"xoxxxxxoxoxxxxxox",
+			"xoxoooooxoxooooox",
+			"xoxoxxxoxoxoxxxox",
+			"xoooooxoxoooooxox",
+			"xoxoxoxoxoxoxoxox",
+			"xoxoxoooxoxoxooox",
+			"xoooxoxoxoooxoxox",
+			"xxxxxoxxxxxxxoxxx",
+			"xoooooooxooooooox",
+			"xoxoxxxoxoxoxxxox",
+			"xoxoxoxoxoxoxoxox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [1, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [7, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [9, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [1, 13],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 13],
+				"direction": [-1, 0]
+			},
+		],
+		"time": 120
+	},
+	4: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xxxoxxxoxxxxoxxxx",
+			"xoooooooxooooooox",
+			"xoxxxoxxxoxxxoxox",
+			"xoooooooxooooooox",
+			"xxxxoxxxxxxoxxxxx",
+			"xoooooooxooooooox",
+			"xxxxoxxxxxxoxxxxx",
+			"xoooooooxooooooox",
+			"xxxoxxoxxxoxxoxxx",
+			"xoooooooxooooooox",
+			"xxoxoxoxxoxoxoxox",
+			"xoooooooxooooooox",
+			"xoxoxoxoxxoxoxoxx",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [7, 4],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [13, 6],
+				"direction": [0, -1]
+			},
+			{
+				"position": [1, 8],
+				"direction": [1, 0]
+			},
+			{
+				"position": [7, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [9, 8],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [6, 10],
+				"direction": [0, 1]
+			},
+			{
+				"position": [10, 10],
+				"direction": [0, 1]
+			},
+		],
+		"time": 120
+	},
+	5: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xxxxxxxoxoxxxxxxx",
+			"xoooooxoxoxooooox",
+			"xoxxxoxoxoxoxxxox",
+			"xoxoooxoxoxoooxox",
+			"xoxoxxxoxoxxxoxox",
+			"xoxoooxoxoxoooxox",
+			"xoxxxoxoxoxoxxxox",
+			"xoxoooxoxoxoooxox",
+			"xoxoxxxoxoxxxoxox",
+			"xoxoooxoxoxoooxox",
+			"xoxxxoxoxoxxxoxox",
+			"xoxoooooxoooooxox",
+			"xoxxxxxxxxxxxxxox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [1, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [3, 6],
+				"direction": [0, 1]
+			},
+			{
+				"position": [3, 12],
+				"direction": [0, -1]
+			},
+			{
+				"position": [13, 6],
+				"direction": [0, 1]
+			},
+			{
+				"position": [13, 12],
+				"direction": [0, -1]
+			},
+			{
+				"position": [7, 3],
+				"direction": [0, 1]
+			},
+			{
+				"position": [9, 3],
+				"direction": [0, 1]
+			},
+		],
+		"time": 120
+	},
+	6: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	7: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	8: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	9: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	10: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	11: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	12: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	13: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	14: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	15: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
+	16: {
+		"tiles": [
+			"xxxxxxxxxxxxxxxxx",
+			"xxxxxxxxxxxxxxxxx",
+			"xooooooogooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
+		],
+		"npc": [
+			{
+				"position": [6, 11],
+				"direction": [0, 1]
+			}
+		],
+		"time": 120
+	},
 }
 
 const __TILEMAP_INDEX = {
