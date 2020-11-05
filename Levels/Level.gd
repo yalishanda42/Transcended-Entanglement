@@ -8,7 +8,6 @@ const AI_START = Vector2(9, 16)
 
 const NPC_RESOURCE = "res://Levels/npc.tscn"
 
-var level = 1
 const MAX_LEVEL = 16
 const LEVEL_SETUP = {
 	1: {
@@ -261,27 +260,49 @@ const LEVEL_SETUP = {
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
 			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xxxxxxxxxxxxxxxxx",
+			"xoxoxxxxxxxxxxxox",
+			"xoxxxoxoxoooooxox",
+			"xoooooooxoxxxxxox",
+			"xoxxxxxoxooooooox",
+			"xoxoooxoxoxxxxxxx",
+			"xxxoxoxoxoooxooox",
+			"xoooxoxoxxxoxoxox",
+			"xxxoxoooxoxoxoxox",
+			"xoxoxoxxxoooxoxox",
+			"xoxoxoxoxoxxxoxox",
+			"xoxoxxxoxoooxoxox",
+			"xoxoooooxxxoooxox",
+			"xoxxxxxoxoxxxxxox",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [1, 11],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [13, 14],
+				"direction": [0, -1]
+			},
+			{
+				"position": [1, 9],
+				"direction": [1, 0]
+			},
+			{
+				"position": [5, 12],
+				"direction": [0, -1]
+			},
+			{
+				"position": [9, 10],
+				"direction": [0, 1]
+			},
+			{
+				"position": [13, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [5, 4],
+				"direction": [0, 1]
+			},
 		],
 		"time": 120
 	},
@@ -583,10 +604,23 @@ const __TILEMAP_INDEX = {
 	"g": 0
 }
 
+var level = 1
+
 func _ready()->void:
 	Hud.visible = true
 	PauseMenu.can_show = true
 	load_level()
+	# for row in range(16):
+	# 	var rowstr = ""
+	# 	for col in range(17):
+	# 		var index = $TileMap.get_cell(col, row)
+	# 		if index == 0:
+	# 			rowstr += "g"
+	# 		elif index == 1:
+	# 			rowstr += "x"
+	# 		elif index == 2:
+	# 			rowstr += "o"
+	# 	print('"' + rowstr + '",')
 
 func _exit_tree()->void:
 	Hud.visible = false
