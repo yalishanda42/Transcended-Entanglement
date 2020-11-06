@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://main.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Images/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn.png" type="Texture" id=2]
@@ -8,7 +8,13 @@
 bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 38 )
+extents = Vector2( 40, 40 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 40, 40 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 80, 38 )
 
 [node name="MainMenu" type="CanvasLayer"]
 layer = 0
@@ -66,43 +72,45 @@ margin_bottom = 306.0
 size_flags_vertical = 3
 
 [node name="IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn" type="Sprite" parent="BG/MarginContainer2/VBoxMain"]
-position = Vector2( 119.822, 162.527 )
+position = Vector2( 119.95, 162.399 )
 scale = Vector2( 0.359711, 0.364096 )
 texture = ExtResource( 2 )
 
 [node name="ButtonB" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( 101.643, 95.1661 )
+position = Vector2( 102.355, 93.0554 )
 shape = SubResource( 2 )
 passby_press = true
 
 [node name="ButtonA" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( 201.633, 95.3958 )
-shape = SubResource( 2 )
+position = Vector2( 201.989, 93.9887 )
+shape = SubResource( 3 )
 passby_press = true
 
 [node name="ButtonDown" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -272.791, 108.025 )
-shape = SubResource( 2 )
+position = Vector2( -314.451, 115.412 )
+shape = SubResource( 4 )
 passby_press = true
 
 [node name="ButtonUp" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -273.518, -0.810791 )
-shape = SubResource( 2 )
+position = Vector2( -315.89, -7.84656 )
+shape = SubResource( 4 )
 passby_press = true
 
 [node name="ButtonLeft" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -329.707, 50.3925 )
-shape = SubResource( 2 )
+position = Vector2( -257.943, 13.3613 )
+rotation = 1.5708
+shape = SubResource( 4 )
 passby_press = true
 
 [node name="ButtonRight" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -217.329, 54.0662 )
-shape = SubResource( 2 )
+position = Vector2( -131.142, 8.84509 )
+rotation = 1.5708
+shape = SubResource( 4 )
 passby_press = true
 
 [node name="ButtonStart" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -23.0877, 86.2117 )
-shape = SubResource( 2 )
+position = Vector2( -106.408, 88.3224 )
+shape = SubResource( 4 )
 [connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonB" to="." method="_on_ButtonB_pressed"]
 [connection signal="released" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonB" to="." method="_on_ButtonB_released"]
 [connection signal="pressed" from="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn/ButtonA" to="." method="_on_ButtonA_pressed"]
