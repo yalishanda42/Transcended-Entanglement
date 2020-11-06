@@ -62,23 +62,14 @@ func on_Exit()->void:
 # Gameplay
 
 func start_over():
-
 	Hud.life = 9
 	on_ChangeScene("res://Levels/level.tscn")
-
-func restart_level():
-	on_ChangeScene("res://Levels/level.tscn")
-
 
 func time_is_up():
 	game_over()
 
 func game_over():
 	on_ChangeScene("res://MainMenu/GameOverContainer.tscn")
-
-#func advance_level(from_level):
-	# TODO
-#	yield(get_tree().create_timer(2.0), "timeout")
 
 func win_game():
 	on_ChangeScene("res://MainMenu/WinGameContainer.tscn")

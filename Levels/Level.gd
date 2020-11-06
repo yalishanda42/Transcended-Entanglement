@@ -853,7 +853,7 @@ func _ready()->void:
 	# 		elif index == 2:
 	# 			rowstr += "o"
 	# 	print('"' + rowstr + '",')
-	
+
 	# $ajbody.shortWeaponUnlocked = true
 	# $rebody.shortWeaponUnlocked = true
 
@@ -891,18 +891,17 @@ func _on_GoalArea_body_exited(body):
 func _on_character_die():
 	get_tree().paused = true
 	yield(get_tree().create_timer(2.0), "timeout")
+
+	Hud.life -= 1
+	if Hud.life <= 0:
+		Game.game_over()
+		return
+
 	ScreenFade.state = ScreenFade.OUT
 	if ScreenFade.state != ScreenFade.BLACK:
 		yield(ScreenFade, "fade_complete")
 	ScreenFade.state = ScreenFade.IN
-
-	var curr = Hud.life
-	var new = curr - 1
-	Hud.life = new
-	if new <= 0:
-		Game.game_over()
-		return
-
+	
 	load_level(false)
 
 func level_up():
