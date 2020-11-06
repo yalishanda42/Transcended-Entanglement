@@ -949,29 +949,144 @@ const LEVEL_SETUP = {
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
 			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xxxxxxxxxxxxxxxxx",
+			"xoxxxxxxxxxxxxxox",
+			"xoxoooooxooxoooox",
+			"xoxoxxxooxoooxxox",
+			"xoxoooxxoooxooxox",
+			"xoxxxooxxxooxooox",
+			"xoooxxoooxxoooxox",
+			"xxxooxxxooxxxooox",
+			"xoooxxoxxoooxxxox",
+			"xoxxxoooxxxoooxxx",
+			"xoooxoxoooxxxooox",
+			"xxxoxoxxxoxoxxxox",
+			"xoooxoxoooooooxox",
+			"xoxxxoxoxxxxxxxox",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [11, 13],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [6, 10],
+				"direction": [0, 1]
+			},
+			{
+				"position": [5, 16],
+				"direction": [0, -1]
+			},
+			{
+				"position": [1, 16],
+				"direction": [1, 0]
+			},
+			{
+				"position": [3, 12],
+				"direction": [0, 1]
+			},
+			{
+				"position": [1, 14],
+				"direction": [1, 0]
+			},
+			{
+				"position": [1, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [1, 10],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [4, 9],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [1, 8],
+				"direction": [0, -1]
+			},
+			{
+				"position": [1, 2],
+				"direction": [0, 1]
+			},
+			{
+				"position": [1, 2],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 2],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 4],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 10],
+				"direction": [0, -1]
+			},
+			{
+				"position": [13, 6],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [10, 7],
+				"direction": [1, 0]
+			},
+			{
+				"position": [8, 6],
+				"direction": [1, 0]
+			},
+			{
+				"position": [13, 9],
+				"direction": [0, -1]
+			},
+			{
+				"position": [7, 4],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [3, 4],
+				"direction": [1, 0]
+			},
+			{
+				"position": [3, 6],
+				"direction": [1, 0]
+			},
+			{
+				"position": [6, 8],
+				"direction": [1, 0]
+			},
+			{
+				"position": [8, 9],
+				"direction": [1, 0]
+			},
+			{
+				"position": [9, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [11, 11],
+				"direction": [1, 0]
+			},
+			{
+				"position": [13, 12],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 12],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 16],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 16],
+				"direction": [-1, 0]
+			},
 		],
 		"prop": [
+			[15, 10],
 		],
 		"time": 30
 	},
