@@ -836,6 +836,7 @@ const __TILEMAP_INDEX = {
 }
 
 var level = 1
+var alive_npcs = 0
 
 func _ready()->void:
 	Hud.visible = true
@@ -852,6 +853,7 @@ func _ready()->void:
 	# 		elif index == 2:
 	# 			rowstr += "o"
 	# 	print('"' + rowstr + '",')
+	
 	# $ajbody.shortWeaponUnlocked = true
 	# $rebody.shortWeaponUnlocked = true
 
@@ -943,6 +945,7 @@ func load_level(is_new = true):
 		npc.position = __get_tile_center(Vector2(npc_pos[0], npc_pos[1]))
 		npc.direction = Vector2(npc_dir[0], npc_dir[1])
 		npc.name = "npc" + str(i)
+	alive_npcs = len(npc_data)
 
 	# Create new props
 	var prop_scene = load(PROP_RESOURCE)
@@ -982,6 +985,16 @@ func __get_tile_center(tile_location_vector):
 	result.y += 8
 	return result
 
+func _on_eliminate_npc(pos: Vector2):
+	alive_npcs -= 1
+	if alive_npcs == 0:
+		var prop_scene = load(PROP_RESOURCE)
+		var prop = prop_scene.instance()
+		prop.name = "propheartallkill"
+		prop.type = "heart"
+		add_child(prop)
+		prop.position = pos
+
 
 func _on_rebody_die():
 	_on_character_die()
@@ -989,3 +1002,11 @@ func _on_rebody_die():
 
 func _on_ajbody_die():
 	_on_character_die()
+
+
+func _on_rebody_eliminate_npc(pos: Vector2):
+	_on_eliminate_npc(pos)
+
+
+func _on_ajbody_eliminate_npc(pos: Vector2):
+	_on_eliminate_npc(pos)

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 signal die
+signal eliminate_npc
 
 export(bool) var isInverted = false
 export(String, FILE, "*.tscn") var shortWeaponScene = "res://Levels/weaponshort.tscn"
@@ -81,6 +82,7 @@ func spawn_short_weapon():
 func _on_short_weapon_area_body_entered(body):
 	if "npc" in body.name:
 		body.kill()
+		emit_signal("eliminate_npc", body.position)
 
 func _on_shortweapontimer_timeout():
 	shortWeaponInstance.queue_free()
