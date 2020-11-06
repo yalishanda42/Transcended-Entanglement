@@ -9,6 +9,8 @@ var PROP_RESOURCE = "res://Levels/props.tscn"
 const COLORS = ["red", "orange", "pink", "blue"]
 var color = "red"
 
+var is_stopped = false
+
 func kill():
 	var spawn_prop = (randi() % 100 + 1) <= spawn_prop_chance
 	if spawn_prop:
@@ -27,7 +29,7 @@ func _ready():
 	direction = direction.normalized()
 
 func _process(delta):
-	if not get_tree().paused:
+	if not get_tree().paused and not is_stopped:
 		var velocity = move_and_slide(direction * speed)
 		if velocity.x == 0 and velocity.y == 0:  #collided
 			# new direction has to be picked

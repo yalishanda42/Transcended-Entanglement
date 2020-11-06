@@ -13,6 +13,8 @@ var visible: = false setget set_visible
 var life: = 9 setget set_life
 var timeLeft: = 120 setget set_timeLeft
 
+var is_special: = false setget set_is_special
+
 func _ready()->void:
 	hpNode.text = \"Lives: \" + str(life)
 	timeNode.text = \"Time: \" + str(timeLeft)
@@ -28,17 +30,33 @@ func set_visible(value: bool)->void:
 
 func set_life(value: int) -> void:
 	life = value
-	hpNode.text = \"Lives: \" + str(value)
+	if is_special:
+		hpNode.text = \"Loves: \" + str(value)
+	else:
+		hpNode.text = \"Lives: \" + str(value)
 	
 func set_timeLeft(value: int) -> void:
 	timeLeft = value
-	timeNode.text = \"Time: \" + str(timeLeft)
+	if is_special:
+		timeNode.text = \"Time: +inf\"
+	else:
+		timeNode.text = \"Time: \" + str(timeLeft)
 
 func _on_Timer_timeout():
-	set_timeLeft(timeLeft - 1)
-	if timeLeft == 0:
-		Game.time_is_up()
-		$Timer.stop()
+	if not is_special:
+		set_timeLeft(timeLeft - 1)
+		if timeLeft == 0:
+			Game.time_is_up()
+			$Timer.stop()
+		
+func set_is_special(value: bool) -> void:
+	is_special = value
+	if value:
+		hpNode.text = \"Loves: \" + str(life)
+		timeNode.text = \"Time: +inf\"
+	else:
+		hpNode.text = \"Lives: \" + str(life)
+		timeNode.text = \"Time: \" + str(timeLeft)
 "
 
 [node name="Hud" type="Node"]

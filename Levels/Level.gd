@@ -1285,32 +1285,134 @@ const LEVEL_SETUP = {
 		"tiles": [
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
-			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
+			"xxoxoooogooooxoxx",
+			"xoxoooooooooooxox",
+			"xxoooxxxoxxxoooxx",
+			"xoooxoooxoooxooox",
+			"xooxoooooooooxoox",
+			"xooooooooooooooox",
+			"xooxoooooooooxoox",
+			"xoooxoooooooxooox",
+			"xoooxoooooooxooox",
+			"xooooxoooooxoooox",
+			"xoooooxoooxooooox",
+			"xxoooooxoxoooooxx",
+			"xoxoooooxoooooxox",
+			"xxoxoooooooooxoxx",
+			"xoxoxoooooooxoxox",
 			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [1, 16],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [1, 14],
+				"direction": [0, 1]
+			},
+			{
+				"position": [2, 15],
+				"direction": [0, 1]
+			},
+			{
+				"position": [3, 16],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 16],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 14],
+				"direction": [0, 1]
+			},
+			{
+				"position": [14, 15],
+				"direction": [0, 1]
+			},
+			{
+				"position": [13, 16],
+				"direction": [0, 1]
+			},
+			{
+				"position": [2, 2],
+				"direction": [0, 1]
+			},
+			{
+				"position": [1, 3],
+				"direction": [0, 1]
+			},
+			{
+				"position": [14, 2],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 3],
+				"direction": [0, 1]
+			},
 		],
 		"prop": [
+			[5, 5],
+			[6, 5],
+			[7, 5],
+			[9, 5],
+			[10, 5],
+			[11, 5],
+			[4, 6],
+			[5, 6],
+			[6, 6],
+			[7, 6],
+			[8, 6],
+			[9, 6],
+			[10, 6],
+			[11, 6],
+			[12, 6],
+			[3, 7],
+			[4, 7],
+			[5, 7],
+			[6, 7],
+			[7, 7],
+			[8, 7],
+			[9, 7],
+			[10, 7],
+			[11, 7],
+			[12, 7],
+			[13, 7],
+			[4, 8],
+			[5, 8],
+			[6, 8],
+			[7, 8],
+			[8, 8],
+			[9, 8],
+			[10, 8],
+			[11, 8],
+			[12, 8],
+			[5, 9],
+			[6, 9],
+			[7, 9],
+			[8, 9],
+			[9, 9],
+			[10, 9],
+			[11, 9],
+			[5, 10],
+			[6, 10],
+			[7, 10],
+			[8, 10],
+			[9, 10],
+			[10, 10],
+			[11, 10],
+			[6, 11],
+			[7, 11],
+			[8, 11],
+			[9, 11],
+			[10, 11],
+			[7, 12],
+			[8, 12],
+			[9, 12],
+			[8, 13],
 		],
-		"time": 30
+		"time": 0
 	},
 }
 
@@ -1429,6 +1531,8 @@ func load_level(is_new = true):
 		npc.position = __get_tile_center(Vector2(npc_pos[0], npc_pos[1]))
 		npc.direction = Vector2(npc_dir[0], npc_dir[1])
 		npc.name = "npc" + str(i)
+		if level == MAX_LEVEL:
+			npc.is_stopped = true
 	alive_npcs = len(npc_data)
 
 	# Create new props
@@ -1452,11 +1556,14 @@ func load_level(is_new = true):
 	ai_has_reached_goal = false
 
 	# Time left
-	if level == 1 and is_new:
-		Hud.timeLeft = level_data["time"]
-	elif is_new:
-		Hud.timeLeft += level_data["time"]
-
+	if level == MAX_LEVEL:
+		Hud.is_special = true
+	else:
+		Hud.is_special = false
+		if level == 1 and is_new:
+			Hud.timeLeft = level_data["time"]
+		elif is_new:
+			Hud.timeLeft += level_data["time"]
 
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().paused = false
