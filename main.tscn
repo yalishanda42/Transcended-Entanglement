@@ -14,7 +14,7 @@ extents = Vector2( 40, 40 )
 extents = Vector2( 40, 40 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 80, 38 )
+extents = Vector2( 65, 38 )
 
 [node name="MainMenu" type="CanvasLayer"]
 layer = 0
@@ -72,7 +72,7 @@ margin_bottom = 306.0
 size_flags_vertical = 3
 
 [node name="IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn" type="Sprite" parent="BG/MarginContainer2/VBoxMain"]
-position = Vector2( 119.95, 162.399 )
+position = Vector2( 120.206, 162.143 )
 scale = Vector2( 0.359711, 0.364096 )
 texture = ExtResource( 2 )
 
@@ -87,23 +87,23 @@ shape = SubResource( 3 )
 passby_press = true
 
 [node name="ButtonDown" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -314.451, 115.412 )
+position = Vector2( -293.443, 124.91 )
 shape = SubResource( 4 )
 passby_press = true
 
 [node name="ButtonUp" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -315.89, -7.84656 )
+position = Vector2( -295.238, -18.4 )
 shape = SubResource( 4 )
 passby_press = true
 
 [node name="ButtonLeft" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -257.943, 13.3613 )
+position = Vector2( -268.145, 26.1797 )
 rotation = 1.5708
 shape = SubResource( 4 )
 passby_press = true
 
 [node name="ButtonRight" type="TouchScreenButton" parent="BG/MarginContainer2/VBoxMain/IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn"]
-position = Vector2( -131.142, 8.84509 )
+position = Vector2( -123.051, 25.5804 )
 rotation = 1.5708
 shape = SubResource( 4 )
 passby_press = true
