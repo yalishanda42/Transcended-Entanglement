@@ -76,8 +76,7 @@ func spawn_short_weapon():
 
 func _on_short_weapon_area_body_entered(body):
 	if "npc" in body.name:
-		body.queue_free()
-		# TODO: pacify
+		body.kill()
 
 func _on_shortweapontimer_timeout():
 	shortWeaponInstance.queue_free()
