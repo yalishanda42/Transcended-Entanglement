@@ -1320,7 +1320,7 @@ const __TILEMAP_INDEX = {
 	"g": 0
 }
 
-var level = 15
+var level = 1
 var alive_npcs = 0
 
 func _ready()->void:
@@ -1339,8 +1339,8 @@ func _ready()->void:
 	# 			rowstr += "o"
 	# 	print('"' + rowstr + '",')
 
-	$ajbody.shortWeaponUnlocked = true
-	$rebody.shortWeaponUnlocked = true
+	# $ajbody.shortWeaponUnlocked = true
+	# $rebody.shortWeaponUnlocked = true
 
 func _exit_tree()->void:
 	Hud.visible = false
