@@ -287,6 +287,8 @@ const LEVEL_SETUP = {
 			"xoxoxxxoxoooxoxox",
 			"xoxoooooxxxoooxox",
 			"xoxxxxxoxoxxxxxox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -340,6 +342,8 @@ const LEVEL_SETUP = {
 			"xoxoxxxoxoxxxxxox",
 			"xoxoooxoxooxoxoox",
 			"xoxxxxxoxoxxoxoxx",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -393,6 +397,8 @@ const LEVEL_SETUP = {
 			"xoxxoxoxxxoxoxxox",
 			"xoxooooxooooooxox",
 			"xoxxxxxxxxxxxxxox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -486,6 +492,8 @@ const LEVEL_SETUP = {
 			"xxxxoxxoxoxxxxxxx",
 			"xooxooxoxooooooox",
 			"xoxxoxxoxxxxxxxox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -556,6 +564,8 @@ const LEVEL_SETUP = {
 			"xoxxoxxxxoxxoxxox",
 			"xooxoxooxoxooooox",
 			"xxxxoxxoxxxxoxxox",
+			"xoooooooxoooooxox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -659,6 +669,8 @@ const LEVEL_SETUP = {
 			"xoxoxoooxoxoxxxxx",
 			"xoxxxxxxxoxooxoox",
 			"xoooxoooxxxxoooxx",
+			"xoxoooxoxooooxoox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -739,7 +751,7 @@ const LEVEL_SETUP = {
 			[7, 4],
 			[9, 14],
 		],
-		"time": 30
+		"time": 40
 	},
 	12: {
 		"tiles": [
@@ -759,6 +771,8 @@ const LEVEL_SETUP = {
 			"xxoxxxxoxoxxxxxxx",
 			"xoooxoooxooooooox",
 			"xoxxxxoxxxxxxxxox",
+			"xoooxoooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -841,7 +855,7 @@ const LEVEL_SETUP = {
 		"prop": [
 			[15, 8],
 		],
-		"time": 30
+		"time": 40
 	},
 	13: {
 		"tiles": [
@@ -861,6 +875,8 @@ const LEVEL_SETUP = {
 			"xoxoxxxxxxxxxxxxx",
 			"xoxooooooooooooox",
 			"xoxxxxxxxxxxxxxox",
+			"xoooooooxooooooox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -942,7 +958,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 30
+		"time": 40
 	},
 	14: {
 		"tiles": [
@@ -962,6 +978,8 @@ const LEVEL_SETUP = {
 			"xxxoxoxxxoxoxxxox",
 			"xoooxoxoooooooxox",
 			"xoxxxoxoxxxxxxxox",
+			"xoooooxoxooooooox",
+			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
@@ -1087,6 +1105,8 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 			[15, 10],
+			[7, 2],
+			[9, 2],
 		],
 		"time": 30
 	},
@@ -1094,32 +1114,172 @@ const LEVEL_SETUP = {
 		"tiles": [
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
-			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
+			"xoooooxogoxooooox",
+			"xoxoxxxoxoxxxoxox",
+			"xoxoooxoxoxoooxox",
+			"xoxxxoxoxoxoxxxox",
+			"xoooxoxoxoooxooox",
+			"xxxoxoxoxxxxxoxxx",
+			"xoooxoooxooooooox",
+			"xoxxxxxxxoxxxxxxx",
+			"xoooooooxoxoooxox",
+			"xxxxxxxoxoxoxoxox",
+			"xoooooxoxoooxooox",
+			"xoxxxoxoxxxxxxxox",
+			"xoooxoooxoxoooxox",
+			"xxxoxxxxxoxoxoxox",
+			"xoooooooxoooxooox",
 			"xxxxxxxxxxxxxxxxx",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [1, 16],
+				"direction": [1, 0]
+			},
+			{
+				"position": [1, 14],
+				"direction": [1, 0]
+			},
+			{
+				"position": [1, 14],
+				"direction": [0, -1]
+			},
+			{
+				"position": [1, 12],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [1, 12],
+				"direction": [1, 0]
+			},
+			{
+				"position": [5, 12],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [5, 12],
+				"direction": [0, 1]
+			},
+			{
+				"position": [5, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [7, 14],
+				"direction": [0, -1]
+			},
+			{
+				"position": [7, 10],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [7, 10],
+				"direction": [0, 1]
+			},
+			{
+				"position": [1, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [1, 10],
+				"direction": [0, -1]
+			},
+			{
+				"position": [3, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [3, 6],
+				"direction": [0, 1]
+			},
+			{
+				"position": [1, 6],
+				"direction": [0, -1]
+			},
+			{
+				"position": [1, 2],
+				"direction": [0, 1]
+			},
+			{
+				"position": [5, 2],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [5, 8],
+				"direction": [0, -1]
+			},
+			{
+				"position": [5, 4],
+				"direction": [0, -1]
+			},
+			{
+				"position": [9, 14],
+				"direction": [0, 1]
+			},
+			{
+				"position": [11, 14],
+				"direction": [0, 1]
+			},
+			{
+				"position": [13, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 16],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 16],
+				"direction": [0, -1]
+			},
+			{
+				"position": [15, 10],
+				"direction": [0, 1]
+			},
+			{
+				"position": [13, 10],
+				"direction": [0, 1]
+			},
+			{
+				"position": [11, 10],
+				"direction": [0, 1]
+			},
+			{
+				"position": [9, 12],
+				"direction": [0, -1]
+			},
+			{
+				"position": [9, 12],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [9, 8],
+				"direction": [1, 0]
+			},
+			{
+				"position": [9, 8],
+				"direction": [0, 1]
+			},
+			{
+				"position": [15, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 6],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [11, 2],
+				"direction": [1, 0]
+			},
+			{
+				"position": [11, 6],
+				"direction": [0, -1]
+			},
 		],
 		"prop": [
 		],
-		"time": 30
+		"time": 60
 	},
 	16: {
 		"tiles": [
@@ -1160,14 +1320,14 @@ const __TILEMAP_INDEX = {
 	"g": 0
 }
 
-var level = 1
+var level = 15
 var alive_npcs = 0
 
 func _ready()->void:
 	Hud.visible = true
 	PauseMenu.can_show = true
 	load_level()
-	# for row in range(16):
+	# for row in range(18):
 	# 	var rowstr = ""
 	# 	for col in range(17):
 	# 		var index = $TileMap.get_cell(col, row)
@@ -1179,8 +1339,8 @@ func _ready()->void:
 	# 			rowstr += "o"
 	# 	print('"' + rowstr + '",')
 
-	# $ajbody.shortWeaponUnlocked = true
-	# $rebody.shortWeaponUnlocked = true
+	$ajbody.shortWeaponUnlocked = true
+	$rebody.shortWeaponUnlocked = true
 
 func _exit_tree()->void:
 	Hud.visible = false
