@@ -45,7 +45,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	2: {
 		"tiles": [
@@ -96,7 +96,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	3: {
 		"tiles": [
@@ -147,7 +147,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	4: {
 		"tiles": [
@@ -208,7 +208,7 @@ const LEVEL_SETUP = {
 			[1, 8],
 			[15, 8],
 		],
-		"time": 60
+		"time": 30
 	},
 	5: {
 		"tiles": [
@@ -267,7 +267,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	6: {
 		"tiles": [
@@ -320,7 +320,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	7: {
 		"tiles": [
@@ -373,7 +373,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	8: {
 		"tiles": [
@@ -466,7 +466,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	9: {
 		"tiles": [
@@ -536,7 +536,7 @@ const LEVEL_SETUP = {
 		"prop": [
 			[5, 8],
 		],
-		"time": 60
+		"time": 30
 	},
 	10: {
 		"tiles": [
@@ -639,7 +639,7 @@ const LEVEL_SETUP = {
 			[9, 14],
 			[7, 4],
 		],
-		"time": 60
+		"time": 30
 	},
 	11: {
 		"tiles": [
@@ -670,7 +670,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	12: {
 		"tiles": [
@@ -701,7 +701,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	13: {
 		"tiles": [
@@ -732,7 +732,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	14: {
 		"tiles": [
@@ -763,7 +763,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	15: {
 		"tiles": [
@@ -794,7 +794,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 	16: {
 		"tiles": [
@@ -825,7 +825,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 60
+		"time": 30
 	},
 }
 
@@ -901,7 +901,7 @@ func _on_character_die():
 		Game.game_over()
 		return
 
-	load_level()
+	load_level(false)
 
 func level_up():
 	level += 1
@@ -916,7 +916,7 @@ func level_up():
 	load_level()
 
 
-func load_level():
+func load_level(is_new = true):
 	var level_data = LEVEL_SETUP[level]
 
 	# Load tiles
@@ -964,7 +964,13 @@ func load_level():
 	re_has_reached_goal = false
 	ai_has_reached_goal = false
 
-	Hud.timeLeft = level_data["time"]
+	# Time left
+	if level == 1 and is_new:
+		Hud.timeLeft = level_data["time"]
+	elif is_new:
+		Hud.timeLeft += level_data["time"]
+
+
 	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().paused = false
 	$TileMap.update_dirty_quadrants()

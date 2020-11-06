@@ -15,6 +15,7 @@ func kill():
 		var prop_scene = load(PROP_RESOURCE)
 		var prop = prop_scene.instance()
 		prop.name = "prop" + name
+		prop.type = "clock"
 		get_parent().add_child(prop)
 		prop.position = position
 	queue_free()
