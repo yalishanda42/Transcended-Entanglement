@@ -646,29 +646,98 @@ const LEVEL_SETUP = {
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
 			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xxxxxxxxxxxxxxxxx",
+			"xxxxxoxxxxxxxxxox",
+			"xoooxoxoxoxoooxox",
+			"xoxxxoxoxoooxooox",
+			"xoxoooxoxoxxxxxxx",
+			"xoxxoxxoxooooooox",
+			"xoxoooxoxxxxxoxox",
+			"xoooxoooxoooxoxox",
+			"xoxoooxoxoxooooox",
+			"xoxxoxxoxoxoxxoxx",
+			"xoxoooxxxoxooooxx",
+			"xoxoxoooxoxoxxxxx",
+			"xoxxxxxxxoxooxoox",
+			"xoooxoooxxxxoooxx",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [3, 4],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [1, 16],
+				"direction": [0, -1]
+			},
+			{
+				"position": [3, 16],
+				"direction": [1, 0]
+			},
+			{
+				"position": [3, 13],
+				"direction": [0, -1]
+			},
+			{
+				"position": [7, 13],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [3, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [5, 10],
+				"direction": [0, -1]
+			},
+			{
+				"position": [5, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [3, 8],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [7, 11],
+				"direction": [0, -1]
+			},
+			{
+				"position": [7, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [9, 5],
+				"direction": [1, 0]
+			},
+			{
+				"position": [9, 14],
+				"direction": [0, -1]
+			},
+			{
+				"position": [15, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 16],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [14, 12],
+				"direction": [0, -1]
+			},
+			{
+				"position": [15, 7],
+				"direction": [0, -1]
+			},
+			{
+				"position": [11, 9],
+				"direction": [0, 1]
+			},
 		],
 		"prop": [
+			[3, 4],
+			[7, 4],
+			[9, 14],
 		],
 		"time": 30
 	},
@@ -835,7 +904,7 @@ const __TILEMAP_INDEX = {
 	"g": 0
 }
 
-var level = 1
+var level = 11
 var alive_npcs = 0
 
 func _ready()->void:
@@ -854,8 +923,8 @@ func _ready()->void:
 	# 			rowstr += "o"
 	# 	print('"' + rowstr + '",')
 
-	# $ajbody.shortWeaponUnlocked = true
-	# $rebody.shortWeaponUnlocked = true
+	$ajbody.shortWeaponUnlocked = true
+	$rebody.shortWeaponUnlocked = true
 
 func _exit_tree()->void:
 	Hud.visible = false
@@ -901,7 +970,7 @@ func _on_character_die():
 	if ScreenFade.state != ScreenFade.BLACK:
 		yield(ScreenFade, "fade_complete")
 	ScreenFade.state = ScreenFade.IN
-	
+
 	load_level(false)
 
 func level_up():
