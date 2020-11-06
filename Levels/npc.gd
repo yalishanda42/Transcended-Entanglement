@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export(int) var speed = 25
 export(Vector2) var direction = Vector2(-1, 0)
-export(int) var spawn_prop_chance = 20
+export(int) var spawn_prop_chance = 10
 var PROP_RESOURCE = "res://Levels/props.tscn"
 
 const COLORS = ["red", "orange", "pink", "blue"]
@@ -31,14 +31,14 @@ func _process(delta):
 		if velocity.x == 0 and velocity.y == 0:  #collided
 			# new direction has to be picked
 			var rand = randf()  # 0...1
-			
+
 			if direction.x == 0:
 				direction.x = -1 if rand < 0.5 else 1
 				direction.y = 0
 			elif direction.y == 0:
 				direction.y = -1 if rand < 0.5 else 1
 				direction.x = 0
-		
+
 		if direction.x > 0:
 			$AnimatedSprite.animation = "side-" + color
 			$AnimatedSprite.flip_h = false

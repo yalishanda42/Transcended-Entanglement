@@ -45,7 +45,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	2: {
 		"tiles": [
@@ -96,7 +96,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	3: {
 		"tiles": [
@@ -147,7 +147,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	4: {
 		"tiles": [
@@ -208,7 +208,7 @@ const LEVEL_SETUP = {
 			[1, 8],
 			[15, 8],
 		],
-		"time": 120
+		"time": 60
 	},
 	5: {
 		"tiles": [
@@ -267,7 +267,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	6: {
 		"tiles": [
@@ -320,7 +320,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	7: {
 		"tiles": [
@@ -373,69 +373,170 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	8: {
 		"tiles": [
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
-			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xxxxxxxxxxxxxxxxx",
+			"xoooooxogoxooooox",
+			"xoxxoxxoxoxoxxxox",
+			"xooxoxooxoxooxoox",
+			"xoxxoxoxxoxxoxxox",
+			"xoxooxoxoooxooxox",
+			"xoxxoxoxxxoxoxxox",
+			"xooxoxoooxoxoxoox",
+			"xoxxoxoxxxoxoxxox",
+			"xoxooxoxoooxooxox",
+			"xoxxoxoxxxoxoxxox",
+			"xooxoxoooxoxoxoox",
+			"xoxxoxoxxxoxoxxox",
+			"xoxooooxooooooxox",
+			"xoxxxxxxxxxxxxxox",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
-				"direction": [0, 1]
-			}
+				"position": [5, 2],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [2, 4],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [2, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [2, 12],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [8, 12],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [8, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [13, 10],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [13, 6],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [3, 6],
+				"direction": [1, 0]
+			},
+			{
+				"position": [3, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [3, 14],
+				"direction": [1, 0]
+			},
+			{
+				"position": [8, 14],
+				"direction": [1, 0]
+			},
+			{
+				"position": [8, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [8, 6],
+				"direction": [1, 0]
+			},
+			{
+				"position": [14, 4],
+				"direction": [1, 0]
+			},
+			{
+				"position": [14, 8],
+				"direction": [1, 0]
+			},
+			{
+				"position": [14, 12],
+				"direction": [1, 0]
+			},
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	9: {
 		"tiles": [
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
 			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xxxxxxxxxxxxxxxxx",
+			"xxxxoxxxxxxxoxxxx",
+			"xoooooooxoooooxox",
+			"xoxxxxxoxoxxxxxox",
+			"xoxoooooxoxooooox",
+			"xxxoxxxxxoxxoxxox",
+			"xoooxoxoxooxoxoox",
+			"xoxxxoxoxxoxoxoxx",
+			"xoooooxoxooooxoox",
+			"xoxxxxxoxxxxxxoxx",
+			"xoooooxoxooooooox",
+			"xxxxoxxoxoxxxxxxx",
+			"xooxooxoxooooooox",
+			"xoxxoxxoxxxxxxxox",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [7, 8],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [5, 8],
+				"direction": [0, 1]
+			},
+			{
+				"position": [2, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [5, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 12],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [9, 14],
+				"direction": [1, 0]
+			},
+			{
+				"position": [1, 6],
+				"direction": [0, -1]
+			},
+			{
+				"position": [13, 4],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [9, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 10],
+				"direction": [-1, 0]
+			},
 		],
 		"prop": [
+			[5, 8],
 		],
-		"time": 120
+		"time": 60
 	},
 	10: {
 		"tiles": [
@@ -466,7 +567,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	11: {
 		"tiles": [
@@ -497,7 +598,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	12: {
 		"tiles": [
@@ -528,7 +629,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	13: {
 		"tiles": [
@@ -559,7 +660,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	14: {
 		"tiles": [
@@ -590,7 +691,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	15: {
 		"tiles": [
@@ -621,7 +722,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 	16: {
 		"tiles": [
@@ -652,7 +753,7 @@ const LEVEL_SETUP = {
 		],
 		"prop": [
 		],
-		"time": 120
+		"time": 60
 	},
 }
 
@@ -679,6 +780,8 @@ func _ready()->void:
 	# 		elif index == 2:
 	# 			rowstr += "o"
 	# 	print('"' + rowstr + '",')
+	# $ajbody.shortWeaponUnlocked = true
+	# $rebody.shortWeaponUnlocked = true
 
 func _exit_tree()->void:
 	Hud.visible = false
@@ -790,6 +893,7 @@ func load_level():
 	ai_has_reached_goal = false
 
 	Hud.timeLeft = level_data["time"]
+	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().paused = false
 	$TileMap.update_dirty_quadrants()
 
