@@ -9,6 +9,7 @@ var speed = 60
 var loadedShortWeaponScene
 var lastDirection
 var shortWeaponInstance = null
+var shortWeaponUnlocked = false
 
 func reset_animation():
 	$AnimatedSprite.animation = "still"
@@ -67,6 +68,9 @@ func _on_Area2D_body_entered(body):
 		emit_signal("die")
 		
 func spawn_short_weapon():
+	if not shortWeaponUnlocked:
+		return
+
 	var weapon = loadedShortWeaponScene.instance()
 	add_child(weapon)
 	weapon.position = lastDirection * 16

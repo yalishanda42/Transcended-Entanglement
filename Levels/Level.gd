@@ -7,8 +7,10 @@ const RE_START = Vector2(7, 16)
 const AI_START = Vector2(9, 16)
 
 const NPC_RESOURCE = "res://Levels/npc.tscn"
+const PROP_RESOURCE = "res://Levels/props.tscn"
 
 const MAX_LEVEL = 16
+const WEAPON_MIN_LEVEL = 2
 const LEVEL_SETUP = {
 	1: {
 		"tiles": [
@@ -40,6 +42,8 @@ const LEVEL_SETUP = {
 				"position": [10, 7],
 				"direction": [0, 1]
 			},
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -90,6 +94,8 @@ const LEVEL_SETUP = {
 				"direction": [-1, 0]
 			},
 		],
+		"prop": [
+		],
 		"time": 120
 	},
 	3: {
@@ -138,6 +144,8 @@ const LEVEL_SETUP = {
 				"position": [15, 13],
 				"direction": [-1, 0]
 			},
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -196,6 +204,10 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			},
 		],
+		"prop": [
+			[1, 8],
+			[15, 8],
+		],
 		"time": 120
 	},
 	5: {
@@ -253,6 +265,8 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			},
 		],
+		"prop": [
+		],
 		"time": 120
 	},
 	6: {
@@ -303,6 +317,8 @@ const LEVEL_SETUP = {
 				"position": [5, 4],
 				"direction": [0, 1]
 			},
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -355,6 +371,8 @@ const LEVEL_SETUP = {
 				"direction": [-1, 0]
 			},
 		],
+		"prop": [
+		],
 		"time": 120
 	},
 	8: {
@@ -383,6 +401,8 @@ const LEVEL_SETUP = {
 				"position": [6, 11],
 				"direction": [0, 1]
 			}
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -413,6 +433,8 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			}
 		],
+		"prop": [
+		],
 		"time": 120
 	},
 	10: {
@@ -441,6 +463,8 @@ const LEVEL_SETUP = {
 				"position": [6, 11],
 				"direction": [0, 1]
 			}
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -471,6 +495,8 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			}
 		],
+		"prop": [
+		],
 		"time": 120
 	},
 	12: {
@@ -499,6 +525,8 @@ const LEVEL_SETUP = {
 				"position": [6, 11],
 				"direction": [0, 1]
 			}
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -529,6 +557,8 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			}
 		],
+		"prop": [
+		],
 		"time": 120
 	},
 	14: {
@@ -557,6 +587,8 @@ const LEVEL_SETUP = {
 				"position": [6, 11],
 				"direction": [0, 1]
 			}
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -587,6 +619,8 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			}
 		],
+		"prop": [
+		],
 		"time": 120
 	},
 	16: {
@@ -615,6 +649,8 @@ const LEVEL_SETUP = {
 				"position": [6, 11],
 				"direction": [0, 1]
 			}
+		],
+		"prop": [
 		],
 		"time": 120
 	},
@@ -698,6 +734,10 @@ func level_up():
 		Game.win_game()
 		return
 
+	if level >= WEAPON_MIN_LEVEL:
+		$rebody.shortWeaponUnlocked = true
+		$ajbody.shortWeaponUnlocked = true
+
 	load_level()
 
 
@@ -711,9 +751,9 @@ func load_level():
 			var cell_index = __TILEMAP_INDEX[tiles[row][col]]
 			$TileMap.set_cell(col, row, cell_index)
 
-	# Delete current npc's
+	# Delete current npc's and props
 	for node in get_children():
-		if "npc" in node.name:
+		if "npc" in node.name or "prop" in node.name:
 			node.queue_free()
 
 	# Create new npc's
@@ -728,6 +768,16 @@ func load_level():
 		npc.position = __get_tile_center(Vector2(npc_pos[0], npc_pos[1]))
 		npc.direction = Vector2(npc_dir[0], npc_dir[1])
 		npc.name = "npc" + str(i)
+
+	# Create new props
+	var prop_scene = load(PROP_RESOURCE)
+	var prop_data = level_data["prop"]
+	for i in range(len(prop_data)):
+		var prop = prop_scene.instance()
+		add_child(prop, true)
+		var prop_pos = prop_data[i]
+		prop.position = __get_tile_center(Vector2(prop_pos[0], prop_pos[1]))
+		prop.name = "prop" + str(i)
 
 	# Move re and ai to their start points
 	$rebody.position = __get_tile_center(RE_START)
