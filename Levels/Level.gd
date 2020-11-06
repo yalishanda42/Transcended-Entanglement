@@ -848,27 +848,97 @@ const LEVEL_SETUP = {
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
 			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xxxxxxxxxxxxxxxxx",
+			"xoxxxxxxxxxxxxxox",
+			"xoooooxoxoxooooox",
+			"xxxxxoooxoooxxxxx",
+			"xoooooxoxoxooooox",
+			"xoxxxxxxxxxxxxxox",
+			"xoooooooooooooxox",
+			"xxxxxxxxxxxxxoxox",
+			"xoooooooooooooxox",
+			"xoxxxxxxxxxxxxxox",
+			"xoxooooooooooooox",
+			"xoxoxxxxxxxxxxxxx",
+			"xoxooooooooooooox",
+			"xoxxxxxxxxxxxxxox",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [1, 16],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 16],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [1, 10],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [13, 10],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [1, 8],
+				"direction": [1, 0]
+			},
+			{
+				"position": [1, 2],
+				"direction": [1, 0]
+			},
+			{
+				"position": [7, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [7, 6],
+				"direction": [0, -1]
+			},
+			{
+				"position": [9, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [9, 6],
+				"direction": [0, -1]
+			},
+			{
+				"position": [15, 2],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [3, 14],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 12],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 6],
+				"direction": [0, 1]
+			},
+			{
+				"position": [1, 10],
+				"direction": [1, 0]
+			},
+			{
+				"position": [13, 8],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [15, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [3, 12],
+				"direction": [1, 0]
+			},
+			{
+				"position": [15, 12],
+				"direction": [0, -1]
+			},
 		],
 		"prop": [
 		],
