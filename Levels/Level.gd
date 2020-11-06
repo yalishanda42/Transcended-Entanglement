@@ -33,8 +33,8 @@ const LEVEL_SETUP = {
 		],
 		"npc": [
 			{
-				"position": [7, 4],
-				"direction": [-1, 0]
+				"position": [1, 10],
+				"direction": [1, 0]
 			},
 			{
 				"position": [10, 7],
