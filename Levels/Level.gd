@@ -310,28 +310,50 @@ const LEVEL_SETUP = {
 		"tiles": [
 			"xxxxxxxxxxxxxxxxx",
 			"xxxxxxxxxxxxxxxxx",
-			"xooooooogooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xoooooooxooooooox",
-			"xxxxxxxxxxxxxxxxx",
+			"xoooooxogoxooooox",
+			"xoxxxoxoxoxoxxxox",
+			"xoxoooxoxoxoxoxox",
+			"xoxoxxxoxoooxoxox",
+			"xoxoooooxxxxxoxox",
+			"xoxoxxoxxooooooox",
+			"xooooxxxxoxxxxxxx",
+			"xoxxxxoxxoooooxox",
+			"xoooooooxxxoxoxox",
+			"xxxxxoxoxoxoxoxox",
+			"xoooxoooxoxooooox",
+			"xoxoxxxoxoxxxxxox",
+			"xoxoooxoxooxoxoox",
+			"xoxxxxxoxoxxoxoxx",
 		],
 		"npc": [
 			{
-				"position": [6, 11],
+				"position": [5, 14],
+				"direction": [-1, 0]
+			},
+			{
+				"position": [12, 14],
 				"direction": [0, 1]
-			}
+			},
+			{
+				"position": [15, 9],
+				"direction": [0, 1]
+			},
+			{
+				"position": [6, 9],
+				"direction": [0, 1]
+			},
+			{
+				"position": [11, 12],
+				"direction": [0, -1]
+			},
+			{
+				"position": [13, 4],
+				"direction": [0, 1]
+			},
+			{
+				"position": [4, 8],
+				"direction": [-1, 0]
+			},
 		],
 		"time": 120
 	},
