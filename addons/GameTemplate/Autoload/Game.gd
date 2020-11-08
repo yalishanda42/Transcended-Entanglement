@@ -67,7 +67,7 @@ func on_Exit()->void:
 # Gameplay
 
 func start_over():
-	Hud.life = 1
+	Hud.life = 9
 	on_ChangeScene("res://Levels/level.tscn")
 
 func time_is_up():
