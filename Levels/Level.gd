@@ -90,7 +90,7 @@ const LEVEL_SETUP = {
 				"direction": [0, 1]
 			},
 			{
-				"position": [11, 5],
+				"position": [11, 6],
 				"direction": [-1, 0]
 			},
 		],
@@ -1455,13 +1455,12 @@ func _on_GoalArea_body_entered(body):
 	elif body.name == "ajbody":
 		ai_has_reached_goal = true
 
-	if re_has_reached_goal and ai_has_reached_goal:
+	if re_has_reached_goal and ai_has_reached_goal and not $Special.visible:
 		$rebody.reset_animation()
 		$ajbody.reset_animation()
 		get_tree().paused = true
 		yield(get_tree().create_timer(2.0), "timeout")
 
-		# TODO: show intermediate screen when unlocking item
 		level_up()
 		ScreenFade.state = ScreenFade.OUT
 		if ScreenFade.state != ScreenFade.BLACK:
@@ -1518,6 +1517,20 @@ func load_level(is_new = true):
 	for node in get_children():
 		if "npc" in node.name or "prop" in node.name:
 			node.queue_free()
+			
+	# Wait for special scene if needed
+	if level == WEAPON_MIN_LEVEL:
+		var prev_time = Hud.timeLeft
+		Hud.timeLeft = 86000
+		Hud.visible = false
+		$Special.visible = true
+		get_tree().paused = false
+		$Special.enter()
+		yield($Special, "exit_special_scene")
+		get_tree().paused = true
+		$Special.visible = false
+		Hud.timeLeft = prev_time
+		Hud.visible = true
 
 	# Create new npc's
 	var npc_scene = load(NPC_RESOURCE)

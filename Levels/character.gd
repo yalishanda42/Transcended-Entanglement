@@ -5,6 +5,7 @@ signal eliminate_npc
 
 export(bool) var isInverted = false
 export(String, FILE, "*.tscn") var shortWeaponScene = "res://Levels/weaponshort.tscn"
+export(bool) var frozen = false
 
 var speed = 60
 var loadedShortWeaponScene
@@ -21,7 +22,7 @@ func _ready():
 	loadedShortWeaponScene = load(shortWeaponScene)
 
 func _process(delta):
-	if not get_tree().paused and shortWeaponInstance == null:
+	if not get_tree().paused and shortWeaponInstance == null and not frozen:
 		# Move only if weapon not spawned
 		
 		var dir = Vector2.ZERO
