@@ -1493,7 +1493,11 @@ func _on_character_die():
 func level_up():
 	level += 1
 	if level > MAX_LEVEL:
-		Game.win_game()
+		_delete_level_npc_items()
+		$Special.visible = true
+		Hud.visible = false
+		get_tree().paused = false
+		$Special.enter(true)
 		return
 
 	if level >= WEAPON_MIN_LEVEL:
@@ -1514,9 +1518,7 @@ func load_level(is_new = true):
 			$TileMap.set_cell(col, row, cell_index)
 
 	# Delete current npc's and props
-	for node in get_children():
-		if "npc" in node.name or "prop" in node.name:
-			node.queue_free()
+	_delete_level_npc_items()
 			
 	# Wait for special scene if needed
 	if level == WEAPON_MIN_LEVEL:
@@ -1600,6 +1602,10 @@ func _on_eliminate_npc(pos: Vector2):
 		add_child(prop)
 		prop.position = pos
 
+func _delete_level_npc_items():
+	for node in get_children():
+		if "npc" in node.name or "prop" in node.name:
+			node.queue_free()
 
 func _on_rebody_die():
 	_on_character_die()

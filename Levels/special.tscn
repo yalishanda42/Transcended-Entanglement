@@ -75,7 +75,7 @@ position = Vector2( 136, 280 )
 collision_layer = 32
 collision_mask = 2048
 
-[node name="heart" type="Sprite" parent="ItemArea"]
+[node name="item" type="Sprite" parent="ItemArea"]
 position = Vector2( 0, -127 )
 texture = ExtResource( 2 )
 
