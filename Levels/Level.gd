@@ -1566,7 +1566,8 @@ func load_level(is_new = true):
 			Hud.timeLeft += level_data["time"]
 
 	yield(get_tree().create_timer(1.0), "timeout")
-	get_tree().paused = false
+	if not MenuEvent.Paused:
+		get_tree().paused = false
 	$TileMap.update_dirty_quadrants()
 
 

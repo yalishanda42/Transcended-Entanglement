@@ -8,7 +8,10 @@ signal Restart		#Reloads game
 signal ChangeScene	#Pass location of next scene file
 signal Exit			#Triggers closing the game
 
+signal current_instance_changed
+
 onready var CurrentScene = null
+var CurrentSceneInstance = null
 var NextScene
 
 var loader: = ResourceAsyncLoader.new()
@@ -46,7 +49,9 @@ func switch_scene()->void: 														#handles actual scene change
 	var toRemove = gameContainer.get_children()[0]
 	gameContainer.remove_child(toRemove)
 	toRemove.queue_free()
-	gameContainer.add_child(CurrentScene.instance(), true)
+	CurrentSceneInstance = CurrentScene.instance()
+	emit_signal("current_instance_changed")
+	gameContainer.add_child(CurrentSceneInstance, true)
 
 func restart_scene()->void:
 	if ScreenFade.state != ScreenFade.IDLE:
@@ -62,14 +67,17 @@ func on_Exit()->void:
 # Gameplay
 
 func start_over():
-	Hud.life = 9
+	Hud.life = 1
 	on_ChangeScene("res://Levels/level.tscn")
 
 func time_is_up():
 	game_over()
+	yield(self, "current_instance_changed")
+	CurrentSceneInstance.is_time = true
 
 func game_over():
 	on_ChangeScene("res://MainMenu/GameOverContainer.tscn")
+	
 
 func win_game():
 	on_ChangeScene("res://MainMenu/WinGameContainer.tscn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MainMenu/GameOverContainer.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Fonts/m5x7_16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Assets/Images/time-no-one.png" type="Texture" id=4]
 
 [sub_resource type="StyleBoxFlat" id=1]
 content_margin_left = 2.0
@@ -85,9 +86,9 @@ expand_margin_bottom = 1.0
 anti_aliasing = false
 
 [node name="VBoxMain" type="VBoxContainer"]
-margin_left = 16.0
+margin_left = 15.0
 margin_top = 16.0
-margin_right = 256.0
+margin_right = 255.0
 margin_bottom = 258.0
 size_flags_vertical = 3
 script = ExtResource( 2 )
@@ -103,24 +104,31 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="ButtonContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 49.0
-margin_right = 191.0
+margin_left = 29.0
+margin_right = 211.0
 margin_bottom = 242.0
 size_flags_vertical = 3
 custom_constants/separation = 21
 
+[node name="time-no-one" type="Sprite" parent="HBoxContainer/ButtonContainer"]
+visible = false
+position = Vector2( 74.2572, 65.7572 )
+scale = Vector2( 0.672206, 0.807608 )
+texture = ExtResource( 4 )
+
 [node name="Label" type="Label" parent="HBoxContainer/ButtonContainer"]
-margin_right = 142.0
-margin_bottom = 29.0
+margin_right = 182.0
+margin_bottom = 26.0
 custom_fonts/font = ExtResource( 3 )
-text = "GAME OVER"
+text = "Game over, catto."
+align = 1
 
 [node name="TryAgain" parent="HBoxContainer/ButtonContainer" groups=[
 "MainMenu",
 ] instance=ExtResource( 1 )]
-margin_top = 50.0
-margin_right = 142.0
-margin_bottom = 85.0
+margin_top = 47.0
+margin_right = 182.0
+margin_bottom = 82.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -129,9 +137,9 @@ custom_styles/normal = SubResource( 4 )
 text = "Try Again"
 
 [node name="MainMenu" parent="HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
-margin_top = 106.0
-margin_right = 142.0
-margin_bottom = 141.0
+margin_top = 103.0
+margin_right = 182.0
+margin_bottom = 138.0
 custom_styles/hover = SubResource( 1 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
