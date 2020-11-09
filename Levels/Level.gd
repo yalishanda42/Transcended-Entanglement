@@ -1108,7 +1108,7 @@ const LEVEL_SETUP = {
 			[7, 2],
 			[9, 2],
 		],
-		"time": 30
+		"time": 60
 	},
 	15: {
 		"tiles": [
