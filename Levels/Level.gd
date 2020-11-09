@@ -1418,7 +1418,7 @@ const LEVEL_SETUP = {
 
 const __TILEMAP_INDEX = {
 	"x": 5,
-	"o": 4,
+	"o": 1,
 	"g": 6
 }
 
