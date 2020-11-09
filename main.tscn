@@ -72,7 +72,7 @@ margin_bottom = 306.0
 size_flags_vertical = 3
 
 [node name="IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn" type="Sprite" parent="BG/MarginContainer2/VBoxMain"]
-position = Vector2( 120.206, 162.143 )
+position = Vector2( 120.206, 122.288 )
 scale = Vector2( 0.359711, 0.364096 )
 texture = ExtResource( 2 )
 
