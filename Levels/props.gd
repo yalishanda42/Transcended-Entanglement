@@ -17,7 +17,7 @@ func _ready():
 func _on_Area2D_body_entered(body):
 	if body.name == "ajbody" or body.name == "rebody":
 		if type == "clock":
-			Hud.timeLeft += 30
+			Hud.timeLeft += 10
 		elif type == "heart":
 			Hud.life += 1
 		queue_free()
