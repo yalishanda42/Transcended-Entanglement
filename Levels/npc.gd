@@ -3,7 +3,7 @@ extends KinematicBody2D
 
 export(int) var speed = 25
 export(Vector2) var direction = Vector2(-1, 0)
-export(int) var spawn_prop_chance = 10
+export(int) var spawn_prop_chance = 20
 var PROP_RESOURCE = "res://Levels/props.tscn"
 
 const COLORS = ["red", "orange", "pink", "blue"]
