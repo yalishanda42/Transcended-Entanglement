@@ -37,6 +37,7 @@ func set_volume_sliders()->void: #Initialize volume sliders
 	Master_slider.value = SettingsAudio.VolumeMaster * 100
 	Music_slider.value = SettingsAudio.VolumeMusic * 100
 	SFX_slider.value = SettingsAudio.VolumeSFX * 100
+	beep.loop = false
 	Master_player.stream = beep
 	Music_player.stream = beep
 	SFX_player.stream = beep
@@ -45,17 +46,17 @@ func set_volume_sliders()->void: #Initialize volume sliders
 func _on_Master_value_changed(value)->void:
 	SettingsAudio.VolumeMaster = value/100
 	var player:AudioStreamPlayer = find_node("Master").get_node("AudioStreamPlayer")
-	#player.play()
+	player.play()
 
 func _on_Music_value_changed(value)->void:
 	SettingsAudio.VolumeMusic = value/100
 	var player:AudioStreamPlayer = find_node("Music").get_node("AudioStreamPlayer")
-	#player.play()
+	player.play()
 
 func _on_SFX_value_changed(value)->void:
 	SettingsAudio.VolumeSFX = value/100
 	var player:AudioStreamPlayer = find_node("SFX").get_node("AudioStreamPlayer")
-	#player.play()
+	player.play()
 
 func _on_Fullscreen_pressed()->void:
 	SettingsResolution.Fullscreen = find_node("Fullscreen").pressed

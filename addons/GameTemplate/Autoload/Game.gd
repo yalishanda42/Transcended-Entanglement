@@ -10,6 +10,8 @@ signal Exit			#Triggers closing the game
 
 signal current_instance_changed
 
+var suspended = false # alternative to get_tree().paused
+
 onready var CurrentScene = null
 var CurrentSceneInstance = null
 var NextScene
@@ -77,7 +79,7 @@ func time_is_up():
 
 func game_over():
 	on_ChangeScene("res://MainMenu/GameOverContainer.tscn")
-	
+
 
 func win_game():
 	on_ChangeScene("res://MainMenu/WinGameContainer.tscn")

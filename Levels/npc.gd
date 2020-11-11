@@ -12,6 +12,7 @@ var color = "red"
 var is_stopped = false
 
 func kill():
+	SfxManager.play("kill")
 	var spawn_prop = (randi() % 100 + 1) <= spawn_prop_chance
 	if spawn_prop:
 		var prop_scene = load(PROP_RESOURCE)
@@ -29,7 +30,7 @@ func _ready():
 	direction = direction.normalized()
 
 func _process(delta):
-	if not get_tree().paused and not is_stopped:
+	if not Game.suspended and not is_stopped:
 		var velocity = move_and_slide(direction * speed)
 		if velocity.x == 0 and velocity.y == 0:  #collided
 			# new direction has to be picked

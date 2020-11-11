@@ -34,7 +34,7 @@ func set_life(value: int) -> void:
 		hpNode.text = \"Loves: \" + str(value)
 	else:
 		hpNode.text = \"Lives: \" + str(value)
-	
+
 func set_timeLeft(value: int) -> void:
 	timeLeft = value
 	if is_special:
@@ -43,12 +43,12 @@ func set_timeLeft(value: int) -> void:
 		timeNode.text = \"Time: \" + str(timeLeft)
 
 func _on_Timer_timeout():
-	if not is_special:
+	if not is_special and not Game.suspended:
 		set_timeLeft(timeLeft - 1)
 		if timeLeft == 0:
 			Game.time_is_up()
 			$Timer.stop()
-		
+
 func set_is_special(value: bool) -> void:
 	is_special = value
 	if value:

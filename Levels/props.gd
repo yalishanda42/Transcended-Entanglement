@@ -16,6 +16,7 @@ func _ready():
 
 func _on_Area2D_body_entered(body):
 	if body.name == "ajbody" or body.name == "rebody":
+		SfxManager.play("prop")
 		if type == "clock":
 			Hud.timeLeft += 10
 		elif type == "heart":

@@ -21,12 +21,13 @@ func add_players(value:int)->void:
 		add_child(player)
 
 func load_samples(list:Array)->void:											# Let the manager handle loading sample - async if possible
-	var samples:Array 
+	var samples:Array
 	if loader.can_async:
 		samples = yield(loader.load_start( list ), "completed")
 	else:
 		samples = loader.load_start( list )
 	for sample in samples:
+		sample.loop = false
 		var key:String = sample.get_path().get_file().get_basename()
 		if !sample_dictionary.has(key):
 			sample_collection.append(sample)

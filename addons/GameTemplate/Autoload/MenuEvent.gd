@@ -26,6 +26,7 @@ func set_languages(value:bool)->void:
 
 func set_paused(value:bool)->void:
 	Paused = value
+	Game.suspended = value
 	get_tree().paused = value
 	emit_signal("Paused", Paused)
 

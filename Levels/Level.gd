@@ -1429,6 +1429,11 @@ var level = 1
 var alive_npcs = 0
 
 func _ready()->void:
+	SfxManager.load_samples([
+		"res://Assets/Sounds/sfx/prop.ogg",
+		"res://Assets/Sounds/sfx/die.ogg",
+		"res://Assets/Sounds/sfx/kill.ogg",
+	])
 	Hud.visible = true
 	PauseMenu.can_show = true
 	load_level()
@@ -1462,7 +1467,7 @@ func _on_GoalArea_body_entered(body):
 	if re_has_reached_goal and ai_has_reached_goal and not $Special.visible:
 		$rebody.reset_animation()
 		$ajbody.reset_animation()
-		get_tree().paused = true
+		Game.suspended = true
 		yield(get_tree().create_timer(2.0), "timeout")
 
 		level_up()
@@ -1479,7 +1484,12 @@ func _on_GoalArea_body_exited(body):
 		ai_has_reached_goal = false
 
 func _on_character_die():
-	get_tree().paused = true
+	SfxManager.play("die")
+	Game.suspended = true
+
+	if Hud.life - 1 == 0:
+		Music.audio.stop()
+
 	yield(get_tree().create_timer(2.0), "timeout")
 
 	Hud.life -= 1
@@ -1500,7 +1510,7 @@ func level_up():
 		_delete_level_npc_items()
 		$Special.visible = true
 		Hud.visible = false
-		get_tree().paused = false
+		Game.suspended = false
 		$Special.enter(true)
 		return
 
@@ -1530,10 +1540,10 @@ func load_level(is_new = true):
 		Hud.timeLeft = 86000
 		Hud.visible = false
 		$Special.visible = true
-		get_tree().paused = false
+		Game.suspended = false
 		$Special.enter()
 		yield($Special, "exit_special_scene")
-		get_tree().paused = true
+		Game.suspended = true
 		$Special.visible = false
 		Hud.timeLeft = prev_time
 		Hud.visible = true
@@ -1587,7 +1597,7 @@ func load_level(is_new = true):
 
 	yield(get_tree().create_timer(1.0), "timeout")
 	if not MenuEvent.Paused:
-		get_tree().paused = false
+		Game.suspended = false
 	$TileMap.update_dirty_quadrants()
 
 
