@@ -4,7 +4,8 @@ var re_has_reached_goal = false
 var ai_has_reached_goal = false
 
 var first_song: Resource = load("res://Assets/Sounds/Solitude.ogg")
-var second_song: Resource = load("res://Assets/Sounds/EndlessSacrifice.ogg")
+var second_song: Resource = load("res://Assets/Sounds/Windowpane.ogg")
+var last_song: Resource = load("res://Assets/Sounds/Moonchild.ogg")
 
 const RE_START = Vector2(7, 16)
 const AI_START = Vector2(9, 16)
@@ -1598,6 +1599,8 @@ func load_level(is_new = true):
 	yield(get_tree().create_timer(1.0), "timeout")
 	if not MenuEvent.Paused:
 		Game.suspended = false
+	if level == MAX_LEVEL:
+		Music.play(last_song)
 	$TileMap.update_dirty_quadrants()
 
 

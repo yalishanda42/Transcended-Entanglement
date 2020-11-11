@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Moonchild.ogg-23b13605ffeabba33f55ec57bdc592ad.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Moonchild.ogg"
+dest_files=[ "res://.import/Moonchild.ogg-23b13605ffeabba33f55ec57bdc592ad.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

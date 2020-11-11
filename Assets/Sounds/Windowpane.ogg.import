@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Windowpane.ogg-389e69b221887b8ea6b0b5354d62a0de.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Windowpane.ogg"
+dest_files=[ "res://.import/Windowpane.ogg-389e69b221887b8ea6b0b5354d62a0de.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
