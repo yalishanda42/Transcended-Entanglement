@@ -2,10 +2,10 @@ extends CanvasLayer
 
 export(int) var joystickVibrationDuration = 25
 
-var title_music = load("res://Assets/Sounds/Benighted.wav")
+var title_music = load("res://Assets/Sounds/Benighted.ogg")
 
 func _ready()->void:
-	get_tree().get_nodes_in_group("MainMenu")[0].grab_focus()					
+	get_tree().get_nodes_in_group("MainMenu")[0].grab_focus()
 	#Godot doesn't have buttons auto grab_focus when noone has focus
 	Music.play(title_music)
 

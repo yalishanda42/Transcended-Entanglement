@@ -11,7 +11,7 @@ onready var SFX_slider:HSlider = find_node("SFX").get_node("HSlider")
 onready var Master_player:AudioStreamPlayer = find_node("Master").get_node("AudioStreamPlayer")
 onready var Music_player:AudioStreamPlayer = find_node("Music").get_node("AudioStreamPlayer")
 onready var SFX_player:AudioStreamPlayer = find_node("SFX").get_node("AudioStreamPlayer")
-var beep: = preload("res://addons/GameTemplate/Assets/Sounds/TestBeep.wav")
+var beep: = preload("res://Assets/Sounds/sfx/kill.ogg")
 
 func _ready()->void:
 	#Set up toggles and sliders
@@ -20,7 +20,7 @@ func _ready()->void:
 		find_node("Scale").visible = false
 	set_resolution()
 	set_volume_sliders()
-	
+
 	MenuEvent.connect("Controls", self, "on_show_controls")
 	MenuEvent.connect("Languages", self, "on_show_languages")
 	SettingsResolution.connect("Resized", self, "_on_Resized")
@@ -45,17 +45,17 @@ func set_volume_sliders()->void: #Initialize volume sliders
 func _on_Master_value_changed(value)->void:
 	SettingsAudio.VolumeMaster = value/100
 	var player:AudioStreamPlayer = find_node("Master").get_node("AudioStreamPlayer")
-	player.play()
+	#player.play()
 
 func _on_Music_value_changed(value)->void:
 	SettingsAudio.VolumeMusic = value/100
 	var player:AudioStreamPlayer = find_node("Music").get_node("AudioStreamPlayer")
-	player.play()
+	#player.play()
 
 func _on_SFX_value_changed(value)->void:
 	SettingsAudio.VolumeSFX = value/100
 	var player:AudioStreamPlayer = find_node("SFX").get_node("AudioStreamPlayer")
-	player.play()
+	#player.play()
 
 func _on_Fullscreen_pressed()->void:
 	SettingsResolution.Fullscreen = find_node("Fullscreen").pressed

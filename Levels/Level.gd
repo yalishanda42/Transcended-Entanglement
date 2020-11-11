@@ -3,6 +3,9 @@ extends Node2D
 var re_has_reached_goal = false
 var ai_has_reached_goal = false
 
+var first_song: Resource = load("res://Assets/Sounds/Solitude.ogg")
+var second_song: Resource = load("res://Assets/Sounds/EndlessSacrifice.ogg")
+
 const RE_START = Vector2(7, 16)
 const AI_START = Vector2(9, 16)
 
@@ -1429,6 +1432,7 @@ func _ready()->void:
 	Hud.visible = true
 	PauseMenu.can_show = true
 	load_level()
+	Music.play(first_song)
 	# for row in range(18):
 	# 	var rowstr = ""
 	# 	for col in range(17):
@@ -1519,7 +1523,7 @@ func load_level(is_new = true):
 
 	# Delete current npc's and props
 	_delete_level_npc_items()
-			
+
 	# Wait for special scene if needed
 	if level == WEAPON_MIN_LEVEL:
 		var prev_time = Hud.timeLeft
@@ -1533,6 +1537,7 @@ func load_level(is_new = true):
 		$Special.visible = false
 		Hud.timeLeft = prev_time
 		Hud.visible = true
+		Music.play(second_song)
 
 	# Create new npc's
 	var npc_scene = load(NPC_RESOURCE)

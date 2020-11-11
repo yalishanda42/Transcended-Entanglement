@@ -6,13 +6,15 @@ const RING_RES = "res://Assets/Images/ring.png"
 const HEART_RES = "res://Assets/Images/weapon-short.png"
 var ring = false
 
+var special_song: Resource = load("res://Assets/Sounds/Alcest.ogg")
 
 func enter(ring = false):
+	Music.play(special_song)
 	$re.frozen = false
 	$ItemArea.visible = true
 	$Label2.visible = false
 	self.ring = ring
-	
+
 	if ring:
 		$ItemArea/item.texture = load(RING_RES)
 		$Label.text = "IT'S DANGEROUS TO\nLIVE ALONE! TAKE THIS"
@@ -40,4 +42,4 @@ func _on_ItemArea_body_entered(body):
 	else:
 		Game.win_game()
 
-	
+
