@@ -1539,7 +1539,7 @@ func load_level(is_new = true):
 	_delete_level_npc_items()
 
 	# Wait for special scene if needed
-	if level == WEAPON_MIN_LEVEL:
+	if level == WEAPON_MIN_LEVEL and is_new:
 		var prev_time = Hud.timeLeft
 		Hud.timeLeft = 86000
 		Hud.visible = false
