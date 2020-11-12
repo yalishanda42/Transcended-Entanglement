@@ -1434,6 +1434,7 @@ func _ready()->void:
 		"res://Assets/Sounds/sfx/prop.ogg",
 		"res://Assets/Sounds/sfx/die.ogg",
 		"res://Assets/Sounds/sfx/kill.ogg",
+		"res://Assets/Sounds/sfx/levelup.ogg",
 	])
 	Hud.visible = true
 	PauseMenu.can_show = true
@@ -1468,6 +1469,8 @@ func _on_GoalArea_body_entered(body):
 	if re_has_reached_goal and ai_has_reached_goal and not $Special.visible:
 		$rebody.reset_animation()
 		$ajbody.reset_animation()
+		if level > 1 and level < MAX_LEVEL:
+			SfxManager.play("levelup")
 		Game.suspended = true
 		yield(get_tree().create_timer(2.0), "timeout")
 
