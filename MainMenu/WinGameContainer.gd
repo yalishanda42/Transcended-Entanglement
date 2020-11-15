@@ -4,8 +4,7 @@ var song: Resource = load("res://Assets/Sounds/Dream_Theater_-_Hollow_Years-NES.
 
 func _ready():
 	Music.play(song)
-	$HBoxContainer/ButtonContainer/MainMenu.grab_focus()
-
-
-func _on_MainMenu_pressed():
-	Game.emit_signal("MainMenu")
+	
+func _process(delta):
+	if Input.get_action_strength("Primary") > 0:
+		Game.emit_signal("MainMenu")

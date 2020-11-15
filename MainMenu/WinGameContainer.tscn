@@ -1,93 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://addons/GameTemplate/GUI/Buttons/DefaultButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Fonts/m5x7_end.tres" type="DynamicFont" id=1]
 [ext_resource path="res://MainMenu/WinGameContainer.gd" type="Script" id=2]
-[ext_resource path="res://Assets/Fonts/m5x7_16.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Levels/character-ai.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Images/ending.png" type="Texture" id=4]
-
-[sub_resource type="StyleBoxFlat" id=1]
-content_margin_left = 2.0
-content_margin_right = 2.0
-content_margin_top = 0.0
-content_margin_bottom = 1.0
-bg_color = Color( 0.0705882, 0.305882, 0.537255, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 1, 1, 1, 0 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_left = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=2]
-content_margin_left = 2.0
-content_margin_right = 2.0
-content_margin_top = 0.0
-content_margin_bottom = 1.0
-bg_color = Color( 0.227451, 0.266667, 0.4, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 1, 1, 1, 0 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_left = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=3]
-content_margin_left = 2.0
-content_margin_right = 2.0
-content_margin_top = 0.0
-content_margin_bottom = 1.0
-bg_color = Color( 0.14902, 0.168627, 0.266667, 0 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 0.0705882, 0.305882, 0.537255, 1 )
-corner_radius_top_left = 2
-corner_radius_top_right = 2
-corner_radius_bottom_right = 2
-corner_radius_bottom_left = 2
-corner_detail = 1
-expand_margin_left = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id=4]
-content_margin_left = 2.0
-content_margin_right = 2.0
-content_margin_top = 0.0
-content_margin_bottom = 1.0
-bg_color = Color( 0.14902, 0.168627, 0.266667, 1 )
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color( 1, 1, 1, 0 )
-corner_detail = 1
-expand_margin_left = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 1.0
-anti_aliasing = false
+[ext_resource path="res://Levels/character-re.tscn" type="PackedScene" id=5]
 
 [node name="VBoxMain" type="VBoxContainer"]
 margin_left = 16.0
-margin_top = 16.0
+margin_top = 8.0
 margin_right = 256.0
 margin_bottom = 258.0
 size_flags_vertical = 3
@@ -97,38 +18,33 @@ __meta__ = {
 }
 
 [node name="ending" type="Sprite" parent="."]
-position = Vector2( 119.822, 127.615 )
-scale = Vector2( 0.35368, 0.373999 )
+position = Vector2( 121.733, 127.133 )
+scale = Vector2( 0.395358, 0.409973 )
 texture = ExtResource( 4 )
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Label" type="Label" parent="."]
 margin_right = 240.0
-margin_bottom = 242.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
+margin_bottom = 253.0
+custom_fonts/font = ExtResource( 1 )
+text = "Dear Re,
 
-[node name="ButtonContainer" type="VBoxContainer" parent="HBoxContainer"]
-margin_left = 48.0
-margin_right = 192.0
-margin_bottom = 242.0
-size_flags_vertical = 3
-custom_constants/separation = 21
+I wish you a happy birthday
+and a lovely life full of joy.
 
-[node name="Label" type="Label" parent="HBoxContainer/ButtonContainer"]
-margin_right = 144.0
-margin_bottom = 26.0
-custom_fonts/font = ExtResource( 3 )
-text = "YOU MADE IT!!!"
+And in times of loneliness,
+In times of pain or sorrow,
+Or in times of just dull boredom
+I wish you to remember this game
+and gladly smile.
 
-[node name="MainMenu" parent="HBoxContainer/ButtonContainer" instance=ExtResource( 1 )]
-margin_top = 47.0
-margin_right = 144.0
-margin_bottom = 82.0
-custom_styles/hover = SubResource( 1 )
-custom_styles/pressed = SubResource( 2 )
-custom_styles/focus = SubResource( 3 )
-custom_styles/disabled = SubResource( 4 )
-custom_styles/normal = SubResource( 4 )
-text = "Main Menu"
-[connection signal="pressed" from="HBoxContainer/ButtonContainer/MainMenu" to="." method="_on_MainMenu_pressed"]
+
+
+                              Yours eternally,
+							                              Ai
+                              22.11.2020"
+
+[node name="ajbody" parent="." instance=ExtResource( 3 )]
+position = Vector2( 244.737, 268.036 )
+
+[node name="rebody" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1.80246, 267.317 )
