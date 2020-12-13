@@ -1,5 +1,7 @@
 extends Node2D
 
+var astar: AStar2D
+
 var re_has_reached_goal = false
 var ai_has_reached_goal = false
 
@@ -1553,6 +1555,26 @@ func load_level(is_new = true):
 		Hud.visible = true
 		Music.play(second_song)
 
+	# Load new AStar2D instance
+	if is_new:
+		astar = AStar2D.new()
+		for row in range(len(tiles)):
+			for col in range(len(tiles[row])):
+				if tiles[row][col] != "x":
+					var pos = Vector2(col, row)
+					var id = position_to_astar_point_id(pos)
+					astar.add_point(id, pos)
+					if row < len(tiles) - 1 and tiles[row+1][col] != "x":
+						var downpos = Vector2(col, row+1)
+						var downid = position_to_astar_point_id(downpos)
+						astar.add_point(downid, downpos)
+						astar.connect_points(id, downid)
+					if col < len(tiles[row]) - 1 and tiles[row][col+1] != "x":
+						var rightpos = Vector2(col+1, row)
+						var rightid = position_to_astar_point_id(rightpos)
+						astar.add_point(rightid, rightpos)
+						astar.connect_points(id, rightid)
+
 	# Create new npc's
 	var npc_scene = load(NPC_RESOURCE)
 	var npc_data = level_data["npc"]
@@ -1565,6 +1587,7 @@ func load_level(is_new = true):
 		npc.position = __get_tile_center(Vector2(npc_pos[0], npc_pos[1]))
 		npc.direction = Vector2(npc_dir[0], npc_dir[1])
 		npc.name = "npc" + str(i)
+		npc.level_instance = self
 		if level == MAX_LEVEL:
 			npc.is_stopped = true
 	alive_npcs = len(npc_data)
@@ -1606,6 +1629,17 @@ func load_level(is_new = true):
 		Music.play(last_song)
 	$TileMap.update_dirty_quadrants()
 
+func get_character_position_in_tilemap(character_name):
+	if character_name == "ai":
+		return map_to_tile($ajbody.position)
+	elif character_name == "re":
+		return map_to_tile($rebody.position)
+
+func map_to_tile(world_pos: Vector2):
+	return $TileMap.world_to_map(world_pos)
+
+func position_to_astar_point_id(pos: Vector2):
+	return int(pos.x) * 1000 + int(pos.y)
 
 func __get_tile_center(tile_location_vector):
 	var result = $TileMap.map_to_world(tile_location_vector)
