@@ -1,0 +1,37 @@
+name: Deploy AI project to Github Pages
+on:
+  push:
+    branches: 
+      - ai-proj   
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v2.3.1 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
+        with:
+          persist-credentials: false
+      
+      - name: Setup environment
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ca-certificates git python python-openssl unzip wget zip curl openjdk-8-jdk
+        
+      - name: Install Godot
+        run: |
+          export GODOT_VERSION="3.2.3"
+          export GODOT_DL_SUBDIR="3.2.3"
+          export GODOT_RELEASE="stable"
+          wget -q https://downloads.tuxfamily.org/godotengine/${GODOT_DL_SUBDIR}/Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_linux_headless.64.zip && wget -q https://downloads.tuxfamily.org/godotengine/${GODOT_DL_SUBDIR}/Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_export_templates.tpz && mkdir -v ~/.cache && mkdir -p -v ~/.config/godot && mkdir -p -v ~/.local/share/godot/templates/${GODOT_VERSION}.${GODOT_RELEASE} && unzip Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_linux_headless.64.zip && sudo mv Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_linux_headless.64 /usr/local/bin/godot && unzip Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_export_templates.tpz && mv templates/* ~/.local/share/godot/templates/${GODOT_VERSION}.${GODOT_RELEASE} && rm -f Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_export_templates.tpz Godot_v${GODOT_VERSION}-${GODOT_RELEASE}_linux_headless.64.zip  
+
+      - name: Install and Build 
+        run: |
+          mkdir html5build
+          godot --export HTML5 html5build/index.html
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@3.7.1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: html5build # The folder the action should deploy.
+          CLEAN: true # Automatically remove deleted files from the deploy branch
