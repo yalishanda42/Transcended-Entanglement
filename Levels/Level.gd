@@ -1554,6 +1554,12 @@ func load_level(is_new = true):
 		Hud.timeLeft = prev_time
 		Hud.visible = true
 		Music.play(second_song)
+		
+	
+	# End the project
+	if level == MAX_LEVEL:
+		Game.suspended = true
+		Game.emit_signal("MainMenu")
 
 	# Load new AStar2D instance
 	if is_new:
