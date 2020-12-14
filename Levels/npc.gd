@@ -38,19 +38,29 @@ func _ready():
 func _process(delta):
 	if not Game.suspended and not is_stopped:
 		if is_smart:
-			var tile = level_instance.map_to_tile(position)
-			var id = level_instance.position_to_astar_point_id(tile)
-			var goal1 = level_instance.get_character_position_in_tilemap("ai")
-			var goal2 = level_instance.get_character_position_in_tilemap("re")
-			var goal1id = level_instance.position_to_astar_point_id(goal1)
-			var goal2id = level_instance.position_to_astar_point_id(goal2)
-			var closer_goal_id = goal1id if _manhattan_distance(tile, goal1) <= _manhattan_distance(tile, goal2) else goal2id
-			var path = level_instance.astar.get_point_path(id, closer_goal_id)
-			direction = Vector2.ZERO
-			if len(path) >= 2: # first item is always current node
-				var next_node = path[1]
-				var diff = Vector2(next_node.x - tile.x, next_node.y - tile.y)
-				direction = diff.normalized()
+			# Assuming position is center and radius of circle collision shape is 7
+			var left_edge = position + Vector2(-7, 0)
+			var right_edge = position + Vector2(7, 0)
+			var up_edge = position + Vector2(0, -7)
+			var down_edge = position + Vector2(0, 7)
+			var left_edge_tile = level_instance.map_to_tile(left_edge)
+			var right_edge_tile = level_instance.map_to_tile(right_edge)
+			var up_edge_tile = level_instance.map_to_tile(up_edge)
+			var down_edge_tile = level_instance.map_to_tile(down_edge)
+			if left_edge_tile == right_edge_tile and up_edge_tile == down_edge_tile:
+				var tile = level_instance.map_to_tile(position)
+				var id = level_instance.position_to_astar_point_id(tile)
+				var goal1 = level_instance.get_character_position_in_tilemap("ai")
+				var goal2 = level_instance.get_character_position_in_tilemap("re")
+				var goal1id = level_instance.position_to_astar_point_id(goal1)
+				var goal2id = level_instance.position_to_astar_point_id(goal2)
+				var closer_goal_id = goal1id if _manhattan_distance(tile, goal1) <= _manhattan_distance(tile, goal2) else goal2id
+				var path = level_instance.astar.get_point_path(id, closer_goal_id)
+				direction = Vector2.ZERO
+				if len(path) >= 2: # first item is always current node
+					var next_node = path[1]
+					var diff = Vector2(next_node.x - tile.x, next_node.y - tile.y)
+					direction = diff.normalized()
 
 		var velocity = move_and_slide(direction * speed)
 
