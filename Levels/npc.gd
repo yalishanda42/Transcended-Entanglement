@@ -54,11 +54,12 @@ func _process(delta):
 				var goal2 = level_instance.get_character_position_in_tilemap("re")
 				var goal1id = level_instance.position_to_astar_point_id(goal1)
 				var goal2id = level_instance.position_to_astar_point_id(goal2)
-				var closer_goal_id = goal1id if _manhattan_distance(tile, goal1) <= _manhattan_distance(tile, goal2) else goal2id
-				var path = level_instance.astar.get_point_path(id, closer_goal_id)
+				var path1 = level_instance.astar.get_point_path(id, goal1id)
+				var path2 = level_instance.astar.get_point_path(id, goal2id)
+				var shorter_path = path1 if len(path1) <= len(path2) and len(path1) >= 2 else path2
 				direction = Vector2.ZERO
-				if len(path) >= 2: # first item is always current node
-					var next_node = path[1]
+				if len(shorter_path) >= 2: # first item is always current node
+					var next_node = shorter_path[1]
 					var diff = Vector2(next_node.x - tile.x, next_node.y - tile.y)
 					direction = diff.normalized()
 
@@ -86,6 +87,3 @@ func _process(delta):
 			$AnimatedSprite.animation = "down-" + color
 		elif direction.y < 0:
 			$AnimatedSprite.animation = "up-" + color
-
-func _manhattan_distance(x, y):
-	return abs(x.x - y.x) + abs(x.y - y.y)

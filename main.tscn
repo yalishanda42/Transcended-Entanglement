@@ -31,7 +31,7 @@ __meta__ = {
 
 [node name="ColorRect" type="ColorRect" parent="BG"]
 margin_right = 272.0
-margin_bottom = 272.0
+margin_bottom = 285.0
 color = Color( 0.215686, 0.239216, 0.376471, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,12 +50,14 @@ __meta__ = {
 }
 
 [node name="TitleScreenContainer" parent="BG/GameContainer" instance=ExtResource( 3 )]
+margin_bottom = 98.0
 
 [node name="MarginContainer2" type="MarginContainer" parent="BG"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = 252.0
+margin_top = 251.583
 margin_right = -2.0
+margin_bottom = -0.417419
 custom_constants/margin_right = 16
 custom_constants/margin_top = 16
 custom_constants/margin_left = 16
@@ -68,7 +70,7 @@ __meta__ = {
 margin_left = 16.0
 margin_top = 16.0
 margin_right = 254.0
-margin_bottom = 306.0
+margin_bottom = 17.0
 size_flags_vertical = 3
 
 [node name="IMGBIN_super-nintendo-entertainment-system-game-controller-png_RZrA4MMn" type="Sprite" parent="BG/MarginContainer2/VBoxMain"]
